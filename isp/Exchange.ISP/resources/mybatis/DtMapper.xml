@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.dtExchange.DtMapper">
+
+	<insert id="insertUtbDkDkjdTemp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbDkDkjdTemp (
+		gjjzxid,
+		ywlx,
+		xingming,
+		zjhm,
+		blrq,
+		bllc,
+		bljg,
+		beizhu,
+		reqid,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.gjjzxid} gjjzxid,
+			#{item.ywlx} ywlx,
+			#{item.xingming} xingming,
+			#{item.zjhm} zjhm,
+			#{item.blrq} blrq,
+			#{item.bllc} bllc,
+			#{item.bljg} bljg,
+			#{item.beizhu} beizhu,
+			#{item.reqid} reqid,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbDkKfsV5Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbDkKfsV5Temp (
+		xzqy,
+		devid,
+		areaid,
+		areaname,
+		devname,
+		regaddress,
+		phone,
+		address,
+		devcode,
+		sydate,
+		areacode,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.devid} devid,
+			#{item.areaid} areaid,
+			#{item.areaname} areaname,
+			#{item.devname} devname,
+			#{item.regaddress} regaddress,
+			#{item.phone} phone,
+			#{item.address} address,
+			#{item.devcode} devcode,
+			#{item.sydate} sydate,
+			#{item.areacode} areacode,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbDkLpxmmxV5Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbDkLpxmmxV5Temp (
+		xzqy,
+		id,
+		prjid,
+		phase,
+		building,
+		istop,
+		cqdjdate,
+		sydate,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.id} id,
+			#{item.prjid} prjid,
+			#{item.phase} phase,
+			#{item.building} building,
+			#{item.istop} istop,
+			#{item.cqdjdate} cqdjdate,
+			#{item.sydate} sydate,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbDkLpxmV5Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbDkLpxmV5Temp (
+		xzqy,
+		proid,
+		devid,
+		proname,
+		proaddress,
+		countycode,
+		prousage,
+		marginrate,
+		personname,
+		personphone,
+		landismortgage,
+		buildingismortgage,
+		istop,
+		qs,
+		czlx,
+		sftb,
+		sydate
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.proid} proid,
+			#{item.devid} devid,
+			#{item.proname} proname,
+			#{item.proaddress} proaddress,
+			#{item.countycode} countycode,
+			#{item.prousage} prousage,
+			#{item.marginrate} marginrate,
+			#{item.personname} personname,
+			#{item.personphone} personphone,
+			#{item.landismortgage} landismortgage,
+			#{item.buildingismortgage} buildingismortgage,
+			#{item.istop} istop,
+			#{item.qs} qs,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.sydate} sydate
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb101Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb101Temp (
+		xzqy,
+		dwmc,
+		dwzh,
+		dwdz,
+		dwfrdbxm,
+		dwfrdbzjlx,
+		dwfrdbzjhm,
+		dwlsgx,
+		dwjjlx,
+		dwsshy,
+		dwyb,
+		dwdzxx,
+		dwfxr,
+		jbrxm,
+		jbrgddhhm,
+		jbrsjhm,
+		jbrzjlx,
+		jbrzjhm,
+		zzjgdm,
+		dwslrq,
+		dwkhrq,
+		styhmc,
+		styhdm,
+		kzxm,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dwmc} dwmc,
+			#{item.dwzh} dwzh,
+			#{item.dwdz} dwdz,
+			#{item.dwfrdbxm} dwfrdbxm,
+			#{item.dwfrdbzjlx} dwfrdbzjlx,
+			#{item.dwfrdbzjhm} dwfrdbzjhm,
+			#{item.dwlsgx} dwlsgx,
+			#{item.dwjjlx} dwjjlx,
+			#{item.dwsshy} dwsshy,
+			#{item.dwyb} dwyb,
+			#{item.dwdzxx} dwdzxx,
+			#{item.dwfxr} dwfxr,
+			#{item.jbrxm} jbrxm,
+			#{item.jbrgddhhm} jbrgddhhm,
+			#{item.jbrsjhm} jbrsjhm,
+			#{item.jbrzjlx} jbrzjlx,
+			#{item.jbrzjhm} jbrzjhm,
+			#{item.zzjgdm} zzjgdm,
+			#{item.dwslrq} dwslrq,
+			#{item.dwkhrq} dwkhrq,
+			#{item.styhmc} styhmc,
+			#{item.styhdm} styhdm,
+			#{item.kzxm} kzxm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb102Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb102Temp (
+		xzqy,
+		grzh,
+		xingming,
+		xmqp,
+		xingbie,
+		gddhhm,
+		sjhm,
+		zjlx,
+		zjhm,
+		csny,
+		hyzk,
+		zhiye,
+		zhichen,
+		zhiwu,
+		xueli,
+		yzbm,
+		jtzz,
+		jtysr,
+		dwzh,
+		kzxm,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.grzh} grzh,
+			#{item.xingming} xingming,
+			#{item.xmqp} xmqp,
+			#{item.xingbie} xingbie,
+			#{item.gddhhm} gddhhm,
+			#{item.sjhm} sjhm,
+			#{item.zjlx} zjlx,
+			#{item.zjhm} zjhm,
+			#{item.csny} csny,
+			#{item.hyzk} hyzk,
+			#{item.zhiye} zhiye,
+			#{item.zhichen} zhichen,
+			#{item.zhiwu} zhiwu,
+			#{item.xueli} xueli,
+			#{item.yzbm} yzbm,
+			#{item.jtzz} jtzz,
+			#{item.jtysr} jtysr,
+			#{item.dwzh} dwzh,
+			#{item.kzxm} kzxm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb201Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb201Temp (
+		xzqy,
+		dwzh,
+		dwjcbl,
+		grjcbl,
+		dwjcrs,
+		dwfcrs,
+		dwzhye,
+		dwxhrq,
+		dwxhyy,
+		dwzhzt,
+		jzny,
+		kzxm,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dwzh} dwzh,
+			#{item.dwjcbl} dwjcbl,
+			#{item.grjcbl} grjcbl,
+			#{item.dwjcrs} dwjcrs,
+			#{item.dwfcrs} dwfcrs,
+			#{item.dwzhye} dwzhye,
+			#{item.dwxhrq} dwxhrq,
+			#{item.dwxhyy} dwxhyy,
+			#{item.dwzhzt} dwzhzt,
+			#{item.jzny} jzny,
+			#{item.kzxm} kzxm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb202extTemp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb202extTemp (
+		xzqy,
+		etpsfundid,
+		dwzh,
+		sharemoney,
+		sparemoney,
+		sparedirection,
+		totalbalance,
+		totalspare,
+		abstract,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.etpsfundid} etpsfundid,
+			#{item.dwzh} dwzh,
+			#{item.sharemoney} sharemoney,
+			#{item.sparemoney} sparemoney,
+			#{item.sparedirection} sparedirection,
+			#{item.totalbalance} totalbalance,
+			#{item.totalspare} totalspare,
+			#{item.absparam} abstract,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb202Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb202Temp (
+		xzqy,
+		dwzh,
+		jzrq,
+		fse,
+		fslxe,
+		fsrs,
+		ywmxlx,
+		hbjny,
+		ywlsh,
+		czbz,
+		dwmxbm,
+		kzxm,
+		czlx,
+		sftb
+		)
+		select a.* from
+		(
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dwzh} dwzh,
+			#{item.jzrq} jzrq,
+			#{item.fse} fse,
+			#{item.fslxe} fslxe,
+			#{item.fsrs} fsrs,
+			#{item.ywmxlx} ywmxlx,
+			#{item.hbjny} hbjny,
+			#{item.ywlsh} ywlsh,
+			#{item.czbz} czbz,
+			#{item.dwmxbm} dwmxbm,
+			#{item.kzxm} kzxm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb203Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb203Temp (
+		xzqy,
+		grzh,
+		grjcjs,
+		grzhzt,
+		khrq,
+		grzhye,
+		grzhsnjzye,
+		grzhdngjye,
+		gryjce,
+		dwyjce,
+		xhrq,
+		xhyy,
+		grckzhhm,
+		grckzhkhyhmc,
+		grckzhkhyhdm,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.grzh} grzh,
+			#{item.grjcjs} grjcjs,
+			#{item.grzhzt} grzhzt,
+			#{item.khrq} khrq,
+			#{item.grzhye} grzhye,
+			#{item.grzhsnjzye} grzhsnjzye,
+			#{item.grzhdngjye} grzhdngjye,
+			#{item.gryjce} gryjce,
+			#{item.dwyjce} dwyjce,
+			#{item.xhrq} xhrq,
+			#{item.xhyy} xhyy,
+			#{item.grckzhhm} grckzhhm,
+			#{item.grckzhkhyhmc} grckzhkhyhmc,
+			#{item.grckzhkhyhdm} grckzhkhyhdm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb204Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb204Temp (
+		xzqy,
+		grzh,
+		jzrq,
+		gjhtqywlx,
+		fse,
+		dngjfse,
+		snjzfse,
+		fslxe,
+		tqyy,
+		tqfs,
+		ywlsh,
+		czbz,
+		zhaiyao,
+		dwmxbm,
+		dqye,
+		kzxm,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.grzh} grzh,
+			#{item.jzrq} jzrq,
+			#{item.gjhtqywlx} gjhtqywlx,
+			#{item.fse} fse,
+			#{item.dngjfse} dngjfse,
+			#{item.snjzfse} snjzfse,
+			#{item.fslxe} fslxe,
+			#{item.tqyy} tqyy,
+			#{item.tqfs} tqfs,
+			#{item.ywlsh} ywlsh,
+			#{item.czbz} czbz,
+			#{item.zhaiyao} zhaiyao,
+			#{item.dwmxbm} dwmxbm,
+			#{item.dqye} dqye,
+			#{item.kzxm} kzxm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb301Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb301Temp (
+		xzqy,
+		jkhtbh,
+		gfhtbh,
+		swtyhmc,
+		swtyhdm,
+		dkdblx,
+		ydfkrq,
+		yddqrq,
+		dkhkfs,
+		hkzh,
+		zhkhyhmc,
+		zhkhyhdm,
+		htdkje,
+		dklx,
+		dkqs,
+		fwzl,
+		fwjzmj,
+		fwtnmj,
+		fwxz,
+		fwzj,
+		jkhtll,
+		llfdbl,
+		gfsfk,
+		jkrgjjzh,
+		jkrxm,
+		jkrzjlx,
+		jkrzjh,
+		sfrmc,
+		sfrzhhm,
+		sfrkhyhdm,
+		sfrkhyhmc,
+		jkhtqdrq,
+		ydhkr,
+		czlx,
+		sftb,
+		conid,
+		reqid
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.jkhtbh} jkhtbh,
+			#{item.gfhtbh} gfhtbh,
+			#{item.swtyhmc} swtyhmc,
+			#{item.swtyhdm} swtyhdm,
+			#{item.dkdblx} dkdblx,
+			#{item.ydfkrq} ydfkrq,
+			#{item.yddqrq} yddqrq,
+			#{item.dkhkfs} dkhkfs,
+			#{item.hkzh} hkzh,
+			#{item.zhkhyhmc} zhkhyhmc,
+			#{item.zhkhyhdm} zhkhyhdm,
+			#{item.htdkje} htdkje,
+			#{item.dklx} dklx,
+			#{item.dkqs} dkqs,
+			#{item.fwzl} fwzl,
+			#{item.fwjzmj} fwjzmj,
+			#{item.fwtnmj} fwtnmj,
+			#{item.fwxz} fwxz,
+			#{item.fwzj} fwzj,
+			#{item.jkhtll} jkhtll,
+			#{item.llfdbl} llfdbl,
+			#{item.gfsfk} gfsfk,
+			#{item.jkrgjjzh} jkrgjjzh,
+			#{item.jkrxm} jkrxm,
+			#{item.jkrzjlx} jkrzjlx,
+			#{item.jkrzjh} jkrzjh,
+			#{item.sfrmc} sfrmc,
+			#{item.sfrzhhm} sfrzhhm,
+			#{item.sfrkhyhdm} sfrkhyhdm,
+			#{item.sfrkhyhmc} sfrkhyhmc,
+			#{item.jkhtqdrq} jkhtqdrq,
+			#{item.ydhkr} ydhkr,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.conid} conid,
+			#{item.reqid} reqid
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb302Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb302Temp (
+		xzqy,
+		dbhtbh,
+		jkhtbh,
+		dkdblx,
+		dbjgmc,
+		dywqzh,
+		dywtxqzh,
+		dywfwzl,
+		dyqjlrq,
+		dyqjcrq,
+		dywpgjz,
+		bzhtbh,
+		bzjgmc,
+		dkbzj,
+		fhbzjrq,
+		zyhtbh,
+		zywbh,
+		zywmc,
+		zywjz,
+		zyhtksrq,
+		zyhtjsrq,
+		czlx,
+		sftb,
+		reqid
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dbhtbh} dbhtbh,
+			#{item.jkhtbh} jkhtbh,
+			#{item.dkdblx} dkdblx,
+			#{item.dbjgmc} dbjgmc,
+			#{item.dywqzh} dywqzh,
+			#{item.dywtxqzh} dywtxqzh,
+			#{item.dywfwzl} dywfwzl,
+			#{item.dyqjlrq} dyqjlrq,
+			#{item.dyqjcrq} dyqjcrq,
+			#{item.dywpgjz} dywpgjz,
+			#{item.bzhtbh} bzhtbh,
+			#{item.bzjgmc} bzjgmc,
+			#{item.dkbzj} dkbzj,
+			#{item.fhbzjrq} fhbzjrq,
+			#{item.zyhtbh} zyhtbh,
+			#{item.zywbh} zywbh,
+			#{item.zywmc} zywmc,
+			#{item.zywjz} zywjz,
+			#{item.zyhtksrq} zyhtksrq,
+			#{item.zyhtjsrq} zyhtjsrq,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.reqid} reqid
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb303Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb303Temp (
+		xzqy,
+		gtjkrgjjzh,
+		jkhtbh,
+		gtjkrxm,
+		gtjkrzjlx,
+		gtjkrzjhm,
+		ysr,
+		cdgx,
+		gddhhm,
+		sjhm,
+		czlx,
+		sftb,
+		cusid
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.gtjkrgjjzh} gtjkrgjjzh,
+			#{item.jkhtbh} jkhtbh,
+			#{item.gtjkrxm} gtjkrxm,
+			#{item.gtjkrzjlx} gtjkrzjlx,
+			#{item.gtjkrzjhm} gtjkrzjhm,
+			#{item.ysr} ysr,
+			#{item.cdgx} cdgx,
+			#{item.gddhhm} gddhhm,
+			#{item.sjhm} sjhm,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.cusid} cusid
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb304Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb304Temp (
+		xzqy,
+		dkzh,
+		jkhtbh,
+		dkfxdj,
+		dkffe,
+		dkffrq,
+		dkye,
+		dkll,
+		llfdbl,
+		dkqs,
+		dqjhhkje,
+		dqjhghbj,
+		dqjhghlx,
+		dqyhje,
+		dqyhbj,
+		dqyhlx,
+		dqyhfx,
+		dkjqrq,
+		hsbjze,
+		hslxze,
+		fxze,
+		tqghbjze,
+		yqbjze,
+		yqlxze,
+		ljyqqs,
+		czlx,
+		sftb,
+		reqid
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dkzh} dkzh,
+			#{item.jkhtbh} jkhtbh,
+			#{item.dkfxdj} dkfxdj,
+			#{item.dkffe} dkffe,
+			#{item.dkffrq} dkffrq,
+			#{item.dkye} dkye,
+			#{item.dkll} dkll,
+			#{item.llfdbl} llfdbl,
+			#{item.dkqs} dkqs,
+			#{item.dqjhhkje} dqjhhkje,
+			#{item.dqjhghbj} dqjhghbj,
+			#{item.dqjhghlx} dqjhghlx,
+			#{item.dqyhje} dqyhje,
+			#{item.dqyhbj} dqyhbj,
+			#{item.dqyhlx} dqyhlx,
+			#{item.dqyhfx} dqyhfx,
+			#{item.dkjqrq} dkjqrq,
+			#{item.hsbjze} hsbjze,
+			#{item.hslxze} hslxze,
+			#{item.fxze} fxze,
+			#{item.tqghbjze} tqghbjze,
+			#{item.yqbjze} yqbjze,
+			#{item.yqlxze} yqlxze,
+			#{item.ljyqqs} ljyqqs,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.reqid} reqid
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb305Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb305Temp (
+		xzqy,
+		dkzh,
+		ywlsh,
+		dkywmxlx,
+		ywfsrq,
+		dkyhdm,
+		fse,
+		bjje,
+		lxje,
+		fxje,
+		dqqc,
+		zczyqbjje,
+		yqzzcbjje,
+		jzrq,
+		czlx,
+		sftb
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dkzh} dkzh,
+			#{item.ywlsh} ywlsh,
+			#{item.dkywmxlx} dkywmxlx,
+			#{item.ywfsrq} ywfsrq,
+			#{item.dkyhdm} dkyhdm,
+			#{item.fse} fse,
+			#{item.bjje} bjje,
+			#{item.lxje} lxje,
+			#{item.fxje} fxje,
+			#{item.dqqc} dqqc,
+			#{item.zczyqbjje} zczyqbjje,
+			#{item.yqzzcbjje} yqzzcbjje,
+			#{item.jzrq} jzrq,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbGb306Temp" parameterType="java.util.List" useGeneratedKeys="false">
+		insert into UtbGb306Temp (
+		xzqy,
+		dkzh,
+		yqqc,
+		yqbj,
+		yqlx,
+		yqfx,
+		ssrq,
+		hkqc,
+		ssyqbjje,
+		ssyqlxje,
+		ssyqfxje,
+		czlx,
+		sftb,
+		yqid
+		)
+		select a.*
+		from (
+		<foreach collection="list" item="item" index="index" separator="UNION ALL">
+			select
+			#{item.xzqy} xzqy,
+			#{item.dkzh} dkzh,
+			#{item.yqqc} yqqc,
+			#{item.yqbj} yqbj,
+			#{item.yqlx} yqlx,
+			#{item.yqfx} yqfx,
+			#{item.ssrq} ssrq,
+			#{item.hkqc} hkqc,
+			#{item.ssyqbjje} ssyqbjje,
+			#{item.ssyqlxje} ssyqlxje,
+			#{item.ssyqfxje} ssyqfxje,
+			#{item.czlx} czlx,
+			#{item.sftb} sftb,
+			#{item.yqid} yqid
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<insert id="insertUtbDkMarginDetials"   parameterType="java.util.List" useGeneratedKeys="false">
+	 insert into UtbDkMarginDetials ( 
+		xzqy,
+		deid,
+		accesstype,
+		bankid,
+		bankname,
+		bankaccount,
+		personname,
+		idcard,
+		billcode,
+		margins,
+		interest,
+		calinttype,
+		calintdate,
+		remark,
+		lasteditdate,
+		lasteditopt,
+		sysdat,
+		sysopt,
+		areaid,
+		lsh,
+		verifyflag,
+		verifydate,
+		verifyopt,
+		submitedate,
+		biid,
+		reqid,
+		procid,
+		bzjlx,
+		zqlx,
+		clbz,
+		margintype,
+		loanmoney,
+		rate,
+		zddate,
+		jxdate,
+		submitflag,
+		submitopt,
+		submitdate,
+		jxflag
+		)
+		select a.* from (
+		 <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
+		select
+		#{item.xzqy} xzqy,
+		#{item.deid} deid,
+		#{item.accesstype} accesstype,
+		#{item.bankid} bankid,
+		#{item.bankname} bankname,
+		#{item.bankaccount} bankaccount,
+		#{item.personname} personname,
+		#{item.idcard} idcard,
+		#{item.billcode} billcode,
+		#{item.margins} margins,
+		#{item.interest} interest,
+		#{item.calinttype} calinttype,
+		#{item.calintdate} calintdate,
+		#{item.remark} remark,
+		#{item.lasteditdate} lasteditdate,
+		#{item.lasteditopt} lasteditopt,
+		#{item.sysdat} sysdat,
+		#{item.sysopt} sysopt,
+		#{item.areaid} areaid,
+		#{item.lsh} lsh,
+		#{item.verifyflag} verifyflag,
+		#{item.verifydate} verifydate,
+		#{item.verifyopt} verifyopt,
+		#{item.submitedate} submitedate,
+		#{item.biid} biid,
+		#{item.reqid} reqid,
+		#{item.procid} procid,
+		#{item.bzjlx} bzjlx,
+		#{item.zqlx} zqlx,
+		#{item.clbz} clbz,
+		#{item.margintype} margintype,
+		#{item.loanmoney} loanmoney,
+		#{item.rate} rate,
+		#{item.zddate} zddate,
+		#{item.jxdate} jxdate,
+		#{item.submitflag} submitflag,
+		#{item.submitopt} submitopt,
+		#{item.submitdate} submitdate,
+		#{item.jxflag} jxflag
+		from dual
+		 </foreach>  
+		) a 
+	</insert>
+	
+	
+	<insert id="insertUtbDkMarginMain"   parameterType="java.util.List" useGeneratedKeys="false">
+	 insert into UtbDkMarginMain ( 
+		xzqy,
+		biid,
+		lsh,
+		areaid,
+		devid,
+		proid,
+		bzjlx,
+		zqlx,
+		clbz,
+		bankname,
+		bankaccount,
+		billcode,
+		loanmoney,
+		rate,
+		margins,
+		interest,
+		margintype,
+		zddate,
+		calintdate,
+		remark,
+		sysdat,
+		sysopt,
+		verifyflag,
+		verifydate,
+		verifyopt,
+		submitdate,
+		submitflag,
+		submitopt,
+		warrentopt,
+		warrentdate,
+		warrentid
+		)
+		select a.* from (
+		 <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
+		select
+		#{item.xzqy} xzqy,
+		#{item.biid} biid,
+		#{item.lsh} lsh,
+		#{item.areaid} areaid,
+		#{item.devid} devid,
+		#{item.proid} proid,
+		#{item.bzjlx} bzjlx,
+		#{item.zqlx} zqlx,
+		#{item.clbz} clbz,
+		#{item.bankname} bankname,
+		#{item.bankaccount} bankaccount,
+		#{item.billcode} billcode,
+		#{item.loanmoney} loanmoney,
+		#{item.rate} rate,
+		#{item.margins} margins,
+		#{item.interest} interest,
+		#{item.margintype} margintype,
+		#{item.zddate} zddate,
+		#{item.calintdate} calintdate,
+		#{item.remark} remark,
+		#{item.sysdat} sysdat,
+		#{item.sysopt} sysopt,
+		#{item.verifyflag} verifyflag,
+		#{item.verifydate} verifydate,
+		#{item.verifyopt} verifyopt,
+		#{item.submitdate} submitdate,
+		#{item.submitflag} submitflag,
+		#{item.submitopt} submitopt,
+		#{item.warrentopt} warrentopt,
+		#{item.warrentdate} warrentdate,
+		#{item.warrentid} warrentid
+		from dual
+		 </foreach>  
+		) a 
+	</insert>
+
+
+
+
+</mapper>
