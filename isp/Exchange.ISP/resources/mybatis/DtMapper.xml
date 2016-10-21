@@ -3,6 +3,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sundsoft.mapper.dtExchange.DtMapper">
 
+	<select id="ExcuteProcedure" parameterType="Map" statementType="CALLABLE">
+		${sql}
+	</select>
+
 	<insert id="insertUtbDkDkjdTemp" parameterType="java.util.List" useGeneratedKeys="false">
 		insert into UtbDkDkjdTemp (
 		gjjzxid,
@@ -859,7 +863,9 @@
 		submitflag,
 		submitopt,
 		submitdate,
-		jxflag
+		jxflag,
+		czlx,
+		sftb
 		)
 		select a.* from (
 		 <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
@@ -902,7 +908,9 @@
 		#{item.submitflag} submitflag,
 		#{item.submitopt} submitopt,
 		#{item.submitdate} submitdate,
-		#{item.jxflag} jxflag
+		#{item.jxflag} jxflag,
+		#{item.czlx} czlx,
+		#{item.sftb} sftb
 		from dual
 		 </foreach>  
 		) a 
@@ -941,7 +949,9 @@
 		submitopt,
 		warrentopt,
 		warrentdate,
-		warrentid
+		warrentid,
+		czlx,
+		sftb
 		)
 		select a.* from (
 		 <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
@@ -976,7 +986,9 @@
 		#{item.submitopt} submitopt,
 		#{item.warrentopt} warrentopt,
 		#{item.warrentdate} warrentdate,
-		#{item.warrentid} warrentid
+		#{item.warrentid} warrentid,
+		#{item.czlx} czlx,
+		#{item.sftb} sftb
 		from dual
 		 </foreach>  
 		) a 

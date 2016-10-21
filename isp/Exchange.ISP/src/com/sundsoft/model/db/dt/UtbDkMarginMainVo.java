@@ -35,6 +35,8 @@ public class UtbDkMarginMainVo {
 	private String warrentopt;
 	private String warrentdate;
 	private int warrentid;
+	private int czlx;
+	private int sftb;
 
 	public String getXzqy() {
 		return xzqy;
@@ -282,6 +284,22 @@ public class UtbDkMarginMainVo {
 
 	public void setWarrentid(int warrentid) {
 		this.warrentid = warrentid;
+	}
+
+	public int getCzlx() {
+		return czlx;
+	}
+
+	public int getSftb() {
+		return sftb;
+	}
+
+	public void setCzlx(int czlx) {
+		this.czlx = czlx;
+	}
+
+	public void setSftb(int sftb) {
+		this.sftb = sftb;
 	}
 
 }

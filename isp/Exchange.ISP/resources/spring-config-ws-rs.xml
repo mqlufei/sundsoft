@@ -14,8 +14,9 @@
   default-lazy-init="true" >
 
   	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
 	<!-- log Interceptor-->
+	
 	<bean id="cxfInLogger" class="com.sundsoft.webservice.log.LoggingFormatInInterceptor">
 	</bean>
 

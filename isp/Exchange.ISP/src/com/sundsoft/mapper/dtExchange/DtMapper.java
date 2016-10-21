@@ -1,7 +1,9 @@
 package com.sundsoft.mapper.dtExchange;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,5 +68,7 @@ public interface DtMapper {
 	public void insertUtbDkMarginDetials(List<UtbDkMarginDetialsVo> items) throws Exception;
 
 	public void insertUtbDkMarginMain(List<UtbDkMarginMainVo> items) throws Exception;
+	
+	public Map<String,String> ExcuteProcedure(Map<String,String> sql) throws Exception;
 
 }

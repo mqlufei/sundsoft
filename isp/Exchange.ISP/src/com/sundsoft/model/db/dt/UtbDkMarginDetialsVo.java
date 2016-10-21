@@ -43,6 +43,8 @@ public class UtbDkMarginDetialsVo {
 	private String submitopt;
 	private String submitdate;
 	private int jxflag;
+	private int czlx;
+	private int sftb;
 
 	public String getXzqy() {
 		return xzqy;
@@ -354,6 +356,22 @@ public class UtbDkMarginDetialsVo {
 
 	public void setJxflag(int jxflag) {
 		this.jxflag = jxflag;
+	}
+
+	public int getCzlx() {
+		return czlx;
+	}
+
+	public int getSftb() {
+		return sftb;
+	}
+
+	public void setCzlx(int czlx) {
+		this.czlx = czlx;
+	}
+
+	public void setSftb(int sftb) {
+		this.sftb = sftb;
 	}
 
 }
