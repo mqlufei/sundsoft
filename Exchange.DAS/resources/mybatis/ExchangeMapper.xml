@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.dasExchange.ExchangeMapper">
+
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+
+	<select id="CreateDaPackage" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_CREATEDAPACKAGE(
+		#{pkgcode,mode=IN,jdbcType=VARCHAR},
+		#{clsid,mode=IN,jdbcType=VARCHAR},
+		#{owner,mode=IN,jdbcType=VARCHAR},
+		#{keyword,mode=IN,jdbcType=VARCHAR},
+		#{creater,mode=IN,jdbcType=VARCHAR},
+		#{title,mode=IN,jdbcType=VARCHAR},
+		#{script,mode=IN,jdbcType=VARCHAR},
+		#{directory,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ARCCODE,mode=OUT,jdbcType=VARCHAR},
+		#{OUT_ERROR,mode=OUT,jdbcType=VARCHAR},
+		#{content,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)
+		}
+	</select>
+	<select id="GetFileDicInfo" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_GETFILEDICINFO(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{content,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)
+		}
+	</select>
+
+	<select id="SaveFileInfo" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_SAVEFILEINFO(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{fileName,mode=IN,jdbcType=VARCHAR},
+		#{subdir,mode=IN,jdbcType=VARCHAR},
+		#{creater,mode=IN,jdbcType=VARCHAR},
+		#{fileSize,mode=IN,jdbcType=NUMERIC},
+		#{fileIndex,mode=IN,jdbcType=NUMERIC},
+		#{slFileName,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+	<select id="GetPkgElement" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_GETPKGELEMENT(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{content,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap},
+		#{OUT_COUNT,mode=OUT,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+	<select id="GetPicByPkgCodeEleId" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_GETELESBYPKGCODEELEID(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{content,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap},
+		#{OUT_COUNT,mode=OUT,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+
+	<select id="DelContent" statementType="CALLABLE" parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_DELCONTENT(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{fileName,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+	<select id="ChangeFileIndex" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_CHANGEFILEINDEX(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{preIndex,mode=IN,jdbcType=NUMERIC},
+		#{curIndex,mode=IN,jdbcType=NUMERIC},
+		#{fileName,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+	<select id="UpdateFileInfo" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_UPDATEFILEINFO(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{eleId,mode=IN,jdbcType=NUMERIC},
+		#{fileName,mode=IN,jdbcType=VARCHAR},
+		#{descript,mode=IN,jdbcType=VARCHAR},
+		#{keyWord,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+	<select id="UpdateArchiveInfo" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_DA_PACKAGE.UPR_UPDATEARCHIVEINFO(
+		#{arcCode,mode=IN,jdbcType=VARCHAR},
+		#{owner,mode=IN,jdbcType=VARCHAR},
+		#{keyWord,mode=IN,jdbcType=VARCHAR},
+		#{title,mode=IN,jdbcType=VARCHAR},
+		#{descript,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+
+
+
+
+
+
+
+
+</mapper>

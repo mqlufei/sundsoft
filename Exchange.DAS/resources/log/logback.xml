@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<contextName>KUAIXIN-FRAMEWORK</contextName>
+
+	<property scope="context" resource="properties/logback.properties" />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender"> 
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{80}[:%line] - %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME:-${java.io.tmpdir}}/DEBUG.log</File>
+		<Append>true</Append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME:-${java.io.tmpdir}}/%d{yyyy-MM/ww,aux}/DEBUG.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{80}[:%line] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+		日志异步到数据库
+		<connectionSource
+			class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+			连接池
+			<dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
+				<driverClass>com.mysql.jdbc.Driver</driverClass>
+				<url>jdbc:mysql://127.0.0.1:3306/test</url>
+				<user>sa</user>
+				<password>admin123</password>
+			</dataSource>
+		</connectionSource>
+	</appender> -->
+
+	<!-- turn OFF all logging (children can override) -->
+	<root level="${root.level:-DEBUG}">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+	<include optional="false" resource="log/logback-application.xml"/>
+	<include optional="true" resource="log/logback-spring.xml" />
+	<include optional="true" resource="log/logback-mybatis.xml" />
+	
+</configuration>        
+
+      
