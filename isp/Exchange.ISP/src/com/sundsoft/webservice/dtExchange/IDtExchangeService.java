@@ -3,8 +3,8 @@ package com.sundsoft.webservice.dtExchange;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import com.sundsoft.model.in.TableParam;
-import com.sundsoft.model.in.VisitControl;
+import com.sundsoft.model.in.dt.TableParam;
+import com.sundsoft.model.in.dt.VisitControl;
 
 @WebService(targetNamespace = IDtExchangeService.NAME_SPACE)
 public interface IDtExchangeService {

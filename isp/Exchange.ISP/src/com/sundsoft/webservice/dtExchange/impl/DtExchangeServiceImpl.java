@@ -8,8 +8,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sundsoft.exception.ServiceException;
-import com.sundsoft.model.in.TableParam;
-import com.sundsoft.model.in.VisitControl;
+import com.sundsoft.model.in.dt.TableParam;
+import com.sundsoft.model.in.dt.VisitControl;
 import com.sundsoft.service.dtExchange.IDtService;
 import com.sundsoft.utils.ResponseUtil;
 import com.sundsoft.webservice.dtExchange.IDtExchangeService;

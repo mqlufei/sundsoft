@@ -1,4 +1,4 @@
-package com.sundsoft.model.in;
+package com.sundsoft.model.in.dt;
 
 import java.io.Serializable;
 import java.util.ArrayList;

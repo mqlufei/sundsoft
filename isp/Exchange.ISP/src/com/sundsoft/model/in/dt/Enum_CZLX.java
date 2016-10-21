@@ -1,4 +1,4 @@
-package com.sundsoft.model.in;
+package com.sundsoft.model.in.dt;
 
 public enum Enum_CZLX {
 	Insert(0), Update(1), Delete(2);

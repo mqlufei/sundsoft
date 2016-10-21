@@ -33,7 +33,7 @@ import com.sundsoft.model.db.dt.UtbGb303TempVo;
 import com.sundsoft.model.db.dt.UtbGb304TempVo;
 import com.sundsoft.model.db.dt.UtbGb305TempVo;
 import com.sundsoft.model.db.dt.UtbGb306TempVo;
-import com.sundsoft.model.in.VisitControl;
+import com.sundsoft.model.in.dt.VisitControl;
 import com.sundsoft.service.dtExchange.IDtService;
 import com.sundsoft.utils.BeanToMapUtil;
 

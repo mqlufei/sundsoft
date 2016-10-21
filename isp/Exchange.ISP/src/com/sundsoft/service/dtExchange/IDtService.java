@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.sundsoft.exception.ServiceException;
-import com.sundsoft.model.in.VisitControl;
+import com.sundsoft.model.in.dt.VisitControl;
 
 public interface IDtService {
 
