@@ -1,0 +1,27 @@
+<!-- Log Configuration for spring framework -->
+<!-- Logback配置文件加载时按顺序的,如果需要引用其它元素，则配置要放在后面才行 -->
+<included>
+
+	<appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<!-- in the absence of the class attribute, it is assumed that the desired 
+			discriminator type is ch.qos.logback.classic.sift.MDCBasedDiscriminator -->
+		<discriminator>
+			<key>userid</key>
+			<defaultValue>unknown</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${userid}" class="ch.qos.logback.core.FileAppender">
+				<file>${LOG_HOME:-${java.io.tmpdir}}/${userid}.log</file>
+				<append>false</append>
+				<layout class="ch.qos.logback.classic.PatternLayout">
+					<pattern>%d [%thread] %level %mdc %X{userid} %logger{80}[:%line] - %msg%n</pattern>
+				</layout>
+			</appender>
+		</sift>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+</included>

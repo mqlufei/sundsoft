@@ -1,0 +1,854 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sundsoft</groupId>
+  <artifactId>Exchange.BMS</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <!-- 设定主仓库，按设定顺序进行查找。 -->
+	<repositories>
+	
+		<!-- 如有Nexus私服, 取消注释并指向正确的服务器地址.
+		<repository>
+			<id>nexus-repos</id>
+			<name>Team Nexus Repository</name>
+			<url>http://192.168.11.36:8888/nexus/content/groups/public</url>
+		</repository> -->
+		
+		<repository>
+            <id>oschina-repos</id>
+            <name>Oschina Releases</name>
+            <url>http://maven.oschina.net/content/groups/public</url>
+        </repository>
+        
+        <repository>
+            <id>java-repos</id>
+            <name>Java Repository</name>
+            <url>http://download.java.net/maven/2/</url>
+        </repository>
+        
+        <repository>
+            <id>springsource-repos</id>
+            <name>SpringSource Repository</name>
+            <url>http://repo.spring.io/release/</url>
+        </repository>
+        
+		<repository>
+			<id>central-repos</id>
+			<name>Central Repository</name>
+			<url>http://repo.maven.apache.org/maven2</url>
+		</repository>
+		
+		<repository>
+			<id>central-repos2</id>
+			<name>Central Repository 2</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		
+		<repository>
+			<id>activiti-repos</id>
+			<name>Activiti Repository</name>
+			<url>https://maven.alfresco.com/nexus/content/groups/public</url>
+		</repository>
+		
+		<repository>
+			<id>activiti-repos2</id>
+			<name>Activiti Repository 2</name>
+			<url>https://app.camunda.com/nexus/content/groups/public</url>
+		</repository>
+		
+		<repository> 
+			<id>thinkgem-repos</id> 
+			<name>ThinkGem Repository</name>
+			<url>http://git.oschina.net/thinkgem/repos/raw/master</url>
+		</repository>
+		
+		<repository> 
+			<id>thinkgem-repos2</id> 
+			<name>ThinkGem Repository 2</name>
+			<url>https://raw.github.com/thinkgem/repository/master</url>
+		</repository>
+		
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Release Repository</name>
+			<uniqueVersion>false</uniqueVersion>
+			<url>http://10.1.2.202:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<uniqueVersion>false</uniqueVersion>
+			<url>http://10.1.2.202:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourcejdk.version>1.7</project.build.sourcejdk.version>
+		<project.build.targetjdk.version>1.7</project.build.targetjdk.version>
+		<plugin.tomcat6.version>2.2</plugin.tomcat6.version>
+		<plugin.tomcat7.version>2.2</plugin.tomcat7.version>
+		<plugin.war.version>2.5</plugin.war.version>
+		<plugin.source.version>2.4</plugin.source.version>
+		<plugin.compiler.version>3.1</plugin.compiler.version>
+		<plugin.surefire.version>2.18</plugin.surefire.version>
+		<plugin.weblogic.version>10.3.6.0</plugin.weblogic.version>
+		<plugin.enforcer.version>1.3.1</plugin.enforcer.version>
+		<plugin.compiler.eclipse.version>2.1</plugin.compiler.eclipse.version>
+		<plugin.phantomjs.version>0.4</plugin.phantomjs.version>
+		<plugin.failsafe.version>2.18.1</plugin.failsafe.version>
+		<plugin.deploy.version>2.4</plugin.deploy.version>
+		<plugin.buildhelper.version>1.9.1</plugin.buildhelper.version>
+
+		<phantomjs.version>1.9.8</phantomjs.version><!-- PhantomJS -->
+		<!-- Integration tests usually needs more memory -->
+		<maven.integration-test.argLine>-Xmx1024m -XX:MaxPermSize=512m</maven.integration-test.argLine>
+
+		<slf4j.version>1.7.12</slf4j.version>
+		<logback.version>1.1.3</logback.version>
+		<logback.spring.version>0.1.4</logback.spring.version>
+		<jackson.version>2.6.2</jackson.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
+		<cxf.version>3.0.0</cxf.version>
+		
+		<quartz.version>2.2.1</quartz.version>
+		<ehcache.version>2.10.1</ehcache.version>
+		<!-- jdbc driver setting -->
+		<mysql.driver.version>5.1.30</mysql.driver.version>
+		<oracle.driver.version>10.2.0.4.0</oracle.driver.version>
+		<!-- jdbc pool -->
+		<druid.version>1.0.11</druid.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.xiongyingqi</groupId>
+		    <artifactId>qrcode</artifactId>
+		    <version>0.1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<!-- Bean Validation API -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.1.Final</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.pjl-comp-filter</groupId>
+			<artifactId>pjl-comp-filter</artifactId>
+			<version>1.7</version>
+		</dependency>
+<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+	    <dependency>
+	      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+	      <artifactId>jackson-jaxrs-json-provider</artifactId>
+	      <version>${jackson.version}</version>
+	    </dependency>
+	    
+	    <dependency>
+		  <groupId>org.codehaus.jackson</groupId>
+		  <artifactId>jackson-jaxrs</artifactId>
+		  <version>1.9.11</version>
+		</dependency>
+	    
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.12</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>    
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!-- Web Basic -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- LOG Start -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>${logback.spring.version}</version>
+		</dependency>
+		<!-- LOG End -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>commons-httpclient</groupId>
+		  <artifactId>commons-httpclient</artifactId>
+		  <version>3.1</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 		  <groupId>org.apache.httpcomponents</groupId> -->
+<!-- 		  <artifactId>httpclient</artifactId> -->
+<!-- 		  <version>4.5.1</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>fastjson</artifactId>
+		  <version>1.2.3</version>
+		</dependency>
+		<dependency>
+		  <groupId>dom4j</groupId>
+		  <artifactId>dom4j</artifactId>
+		  <version>1.6.1</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.sun.xml.bind</groupId>
+		  <artifactId>jaxb-impl</artifactId>
+		  <version>2.2</version>
+		</dependency>
+	   <!-- CXF -->
+	    <dependency>
+	      <groupId>org.apache.cxf</groupId>
+	      <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	      <version>${cxf.version}</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+	
+<!-- 		<dependency> -->
+<!-- 		  <groupId>org.codehaus.jackson</groupId> -->
+<!-- 		  <artifactId>jackson-jaxrs</artifactId> -->
+<!-- 		  <version>1.9.11</version> -->
+<!-- 		</dependency> -->
+	
+	
+		<dependency>
+     		 <groupId>org.quartz-scheduler</groupId>
+      		 <artifactId>quartz</artifactId>
+     		 <version>${quartz.version}</version>
+   		</dependency>
+		
+		
+		<dependency>
+      		<groupId>net.sf.ehcache</groupId>
+      		<artifactId>ehcache</artifactId>
+      		<version>${ehcache.version}</version>
+   		</dependency>
+   		
+   		<dependency>
+			<groupId>com.google.guava</groupId>
+		 	<artifactId>guava</artifactId>
+		  	<version>18.0</version>
+		</dependency>
+		
+		<!-- jdbc driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>${oracle.driver.version}</version>
+			<scope>runtime</scope>
+		</dependency> -->
+		
+		<!-- connection pool -->
+		<dependency>
+		     <groupId>com.alibaba</groupId>
+		     <artifactId>druid</artifactId>
+		     <version>${druid.version}</version>
+		</dependency>
+	</dependencies>
+  
+  <build>
+		<finalName>${project.artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>**/${resource.exclude}/**</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<pluginManagement>
+			<plugins>
+				<!-- This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.github.klieber</groupId>
+										<artifactId>phantomjs-maven-plugin</artifactId>
+										<versionRange>[0.4,)</versionRange>
+										<goals>
+											<goal>install</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>build-helper-maven-plugin</artifactId>
+										<versionRange>[1.8,)</versionRange>
+										<goals>
+											<goal>add-test-source</goal>
+											<goal>add-test-resource</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${plugin.deploy.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat6-maven-plugin</artifactId>
+					<version>${plugin.tomcat6.version}</version>
+					<configuration>
+						<uriEncoding>UTF-8</uriEncoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>${plugin.tomcat7.version}</version>
+					<configuration>
+						<uriEncoding>UTF-8</uriEncoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${plugin.war.version}</version>
+				</plugin>
+
+				<!-- 编译插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${plugin.compiler.version}</version>
+					<configuration>
+						<source>${project.build.sourcejdk.version}</source>
+						<target>${project.build.targetjdk.version}</target>
+						<!-- <compilerId>eclipse</compilerId> -->
+					</configuration>
+					<!-- <dependencies> -->
+					<!-- <dependency> -->
+					<!-- <groupId>org.codehaus.plexus</groupId> -->
+					<!-- <artifactId>plexus-compiler-eclipse</artifactId> -->
+					<!-- <version>${plugin.compiler.eclipse.version}</version> -->
+					<!-- </dependency> -->
+					<!-- </dependencies> -->
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<downloadSources>true</downloadSources>
+					</configuration>
+				</plugin>
+
+				<!-- 源码插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${plugin.source.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<!-- 单元测试插件 -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${plugin.surefire.version}</version>
+					<configuration>
+						<skip>true</skip>
+						<includes>
+							<include>**/*Test*.java</include>
+							<include>**/*Test.java</include>
+							<include>**/*TestCase.java</include>
+						</includes>
+					</configuration>
+				</plugin>
+
+				<!-- Web UI集成测试插件配置( Start ) -->
+				<!-- Installs PhantomJS so it doesn't have to be pre-installed -->
+				<plugin>
+					<groupId>com.github.klieber</groupId>
+					<artifactId>phantomjs-maven-plugin</artifactId>
+					<version>${plugin.phantomjs.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>install</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<version>${phantomjs.version}</version>
+					</configuration>
+				</plugin>
+
+				<!-- Use failsafe to run our integration tests -->
+				<plugin>
+					<!-- adding second test source directory (just for integration tests) -->
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${plugin.buildhelper.version}</version>
+					<executions>
+						<execution>
+							<id>add-integration-test-source</id>
+							<phase>generate-test-sources</phase>
+							<goals>
+								<goal>add-test-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>src/integrationtest/java</source>
+								</sources>
+							</configuration>
+						</execution>
+						<execution>
+							<id>add-integration-test-resource</id>
+							<phase>generate-test-sources</phase>
+							<goals>
+								<goal>add-test-resource</goal>
+							</goals>
+							<configuration>
+								<resources>
+									<resource>
+										<directory>src/integrationtest/resource</directory>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${plugin.failsafe.version}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<phantomjs.binary.path>${phantomjs.binary}</phantomjs.binary.path>
+							<app.contextpath>${contextpath}</app.contextpath>
+						</systemPropertyVariables>
+						<argLine>${maven.integration-test.argLine}</argLine>
+						<includes>
+							<include>**/IT*.java</include>
+							<include>**/*IT.java</include>
+							<include>**/*ITCase.java</include>
+						</includes>
+					</configuration>
+					<executions>
+						<execution>
+							<id>integration-test</id>
+							<goals>
+								<goal>integration-test</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>verify</id>
+							<goals>
+								<goal>verify</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Web UI集成测试插件配置( End ) -->
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>${plugin.enforcer.version}</version>
+					<executions>
+						<execution>
+							<id>enforce-versions</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<requireMavenVersion>
+										<version>[2.0.6,)</version>
+									</requireMavenVersion>
+									<requireJavaVersion>
+										<version>[1.6,)</version>
+									</requireJavaVersion>
+								</rules>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<version>3.0.1-SNAPSHOT</version>
+					<configuration>
+						<findbugsXmlOutput>true</findbugsXmlOutput>
+						<findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
+					</configuration>
+				</plugin>
+
+				<!-- 项目依赖报告插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.7</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.m2e</groupId>
+				<artifactId>lifecycle-mapping</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat6-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Integration Test -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.github.klieber</groupId>
+				<artifactId>phantomjs-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+			<!--War包不发布到私服 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warSourceExcludes>${resource.web.exclude}</warSourceExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<!-- 开发环境使用tomcat或者Jetty做为web容器，且配置连接池 -->
+			<id>dev</id>
+			<properties>
+				<resource.exclude>pro</resource.exclude>
+			</properties>
+			<!-- 连接池需要的依赖 -->
+			<dependencies>
+				<dependency>
+					<groupId>com.mchange</groupId>
+					<artifactId>c3p0</artifactId>
+					<version>0.9.5.1</version>
+				</dependency>
+				<!-- <dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>5.1.36</version>
+				</dependency> -->
+				<dependency>
+					<groupId>com.oracle</groupId>
+					<artifactId>ojdbc14</artifactId>
+					<version>10.2.0.4.0</version>
+				</dependency>
+			</dependencies>
+			<activation>  
+                    <activeByDefault>true</activeByDefault>  
+             </activation>  
+		</profile>
+
+		<profile>
+			<!-- 生产环境使用Weblogic做为web容器，且由weblogic提供连接池 -->
+			<id>pro</id>
+			<properties>
+				<resource.exclude>dev</resource.exclude>
+			</properties>
+		</profile>
+
+	</profiles>
+  
+  
+</project>
