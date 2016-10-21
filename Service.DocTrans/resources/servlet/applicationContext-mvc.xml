@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	default-lazy-init="true">
+
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+	
+	<context:property-placeholder location="classpath:properties/mvc-servlet.properties"  />
+
+	<context:component-scan base-package="com.sundsoft" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<mvc:interceptors>
+		<bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<property name="cacheSeconds" value="0" />
+			<property name="useExpiresHeader" value="true" />
+			<property name="useCacheControlHeader" value="true" />
+			<property name="useCacheControlNoStore" value="true" />
+			<property name="cacheMappings">
+				<props>
+					<prop key="*.js">2592000</prop>
+					<prop key="*.jpg">2592000</prop>
+					<prop key="*.png">2592000</prop>
+					<prop key="*.gif">2592000</prop>
+					<prop key="*.css">2592000</prop>
+					<prop key="*.html">2592000</prop>
+					<prop key="*.htm">2592000</prop>
+				</props>
+			</property>
+		</bean>
+	</mvc:interceptors>
+
+	<!--###################################### Views #######################################-->
+	
+	
+	<util:constant id="version" static-field="freemarker.template.Configuration.VERSION_2_3_23"/>
+	
+	
+
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="defaultContentType" value="text/html" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xls" value="application/vnd.ms-excel" />
+				<entry key="pdf" value="application/pdf" />
+			</map>
+		</property>
+		<property name="favorPathExtension" value="true" />
+		<property name="favorParameter" value="true" />
+		<property name="parameterName" value="format" />
+	</bean>
+
+	<util:list id="featuresToDisable">
+		<util:constant static-field="com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS" />
+		<util:constant static-field="com.fasterxml.jackson.databind.SerializationFeature.FAIL_ON_SELF_REFERENCES" />
+		<util:constant static-field="com.fasterxml.jackson.databind.SerializationFeature.FAIL_ON_EMPTY_BEANS" />
+		<util:constant static-field="com.fasterxml.jackson.databind.MapperFeature.SORT_PROPERTIES_ALPHABETICALLY" />
+	</util:list>
+
+	<util:list id="featuresToEnable">
+		<util:constant static-field="com.fasterxml.jackson.databind.SerializationFeature.WRITE_ENUMS_USING_TO_STRING" />
+	</util:list>
+		
+	<bean name="jacksonObjectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+		<property name="featuresToDisable" ref="featuresToDisable" />
+		<property name="featuresToEnable" ref="featuresToEnable" />
+		<property name="simpleDateFormat" value="yyyy-MM-dd HH:mm:ss" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+					<property name="objectMapper" ref="jacksonObjectMapper" />
+					<property name="jsonpParameterNames">
+						<set>
+							<value>jsonp</value>
+							<value>callback</value>
+						</set>
+					</property>
+				</bean>
+			</list>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+					<property name="order" value="2" />
+					<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+					<property name="suffix" value=".ftl" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+					<property name="exposeRequestAttributes" value="true" />
+					<property name="exposeSessionAttributes" value="true" />
+					<property name="exposeSpringMacroHelpers" value="true" />
+					<property name="requestContextAttribute" value="requestContext" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!--###############################################################################-->
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="${web.view.prefix}"/>
+		<property name="suffix" value="${web.view.suffix}"/>
+	</bean>
+	
+	<!-- ########################## File Upload ############################ -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="${fileUpload.maxUploadSize}" /><!-- 
+			set the maximum allowed size (in bytes) -->
+		<property name="maxUploadSizePerFile" value="${fileUpload.maxUploadSizePerFile}" />
+	</bean>
+	<!-- ################################################################ -->
+
+
+	<!-- ###################### i18n ################################ -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+		<property name="defaultLocale" value="${i18n.locale}" />
+	</bean>
+
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="${message.cache_seconds}" />
+		<property name="useCodeAsDefaultMessage" value="true" />
+		<property name="basenames">
+			<array value-type="java.lang.String">
+				<value>/WEB-INF/i18n/application/application</value>
+				<value>/WEB-INF/i18n/message/messages</value>
+			</array>
+		</property>
+	</bean>
+	<!-- ############################################################# -->
+	<!-- Exception -->
+	
+</beans>
