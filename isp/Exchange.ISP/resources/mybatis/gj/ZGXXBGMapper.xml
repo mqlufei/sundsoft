@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.gjExchange.ZGXXBGMapper">
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+	<select id="GJ_ZGXXBGGETLIST" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGGETLIST(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{zxwdbm,mode=IN,jdbcType=VARCHAR},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{yylsh,mode=IN,jdbcType=VARCHAR},
+		#{yyslzt,mode=IN,jdbcType=NUMERIC},
+		#{lcbm,mode=IN,jdbcType=VARCHAR},
+		#{dqzt,mode=IN,jdbcType=NUMERIC},
+		#{query,mode=IN,jdbcType=VARCHAR},
+		#{orderbyname,mode=IN,jdbcType=VARCHAR},
+		#{isasc,mode=IN,jdbcType=NUMERIC},
+		#{pageindex,mode=IN,jdbcType=NUMERIC},
+		#{pagesize,mode=IN,jdbcType=NUMERIC},
+		#{rowid,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="GJ_ZGXXBGZXSH" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGZXSH(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{yyywxxid,mode=IN,jdbcType=NUMERIC},
+		#{zxzt,mode=IN,jdbcType=NUMERIC},
+		#{errormsg,mode=IN,jdbcType=VARCHAR},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="GJ_ZGXXBGYYBL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGYYBL(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{yyywxxid,mode=IN,jdbcType=NUMERIC},
+		#{yyrq,mode=IN,jdbcType=VARCHAR},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="GJ_ZGXXBGGETMXLIST" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGGETMXLIST(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{yyywxxid,mode=IN,jdbcType=NUMERIC},
+		#{query,mode=IN,jdbcType=VARCHAR},
+		#{orderbyname,mode=IN,jdbcType=VARCHAR},
+		#{isasc,mode=IN,jdbcType=NUMERIC},
+		#{pageindex,mode=IN,jdbcType=NUMERIC},
+		#{pagesize,mode=IN,jdbcType=NUMERIC},
+		#{rowid,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="GJ_ZGXXBGGETBYDWZH" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGGETBYDWZH(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="GJ_ZGXXBGACEEPT" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJZGXXBG.UPR_GJ_ZGXXBGAceept(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{zxzt,mode=IN,jdbcType=NUMERIC},
+		#{errormsg,mode=IN,jdbcType=VARCHAR},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+</mapper>

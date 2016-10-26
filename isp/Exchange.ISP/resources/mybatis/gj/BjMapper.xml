@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.gjExchange.BjMapper">
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+	<select id="GJ_BJGETLIST" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJGETLIST(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{zxwdbm,mode=IN,jdbcType=VARCHAR},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{yylsh,mode=IN,jdbcType=VARCHAR},
+		#{yyslzt,mode=IN,jdbcType=NUMERIC},
+		#{lcbm,mode=IN,jdbcType=VARCHAR},
+		#{dqzt,mode=IN,jdbcType=NUMERIC},
+		#{query,mode=IN,jdbcType=VARCHAR},
+		#{orderbyname,mode=IN,jdbcType=VARCHAR},
+		#{isasc,mode=IN,jdbcType=NUMERIC},
+		#{pageindex,mode=IN,jdbcType=NUMERIC},
+		#{pagesize,mode=IN,jdbcType=NUMERIC},
+		#{rowid,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="GJ_BJZXSH" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJZXSH(
+		#{ywid,mode=IN,jdbcType=VARCHAR},
+		#{zxzt,mode=IN,jdbcType=NUMERIC},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="GJ_BJYYBL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJYYBL(
+		#{ywid,mode=IN,jdbcType=VARCHAR},
+		#{yyrq,mode=IN,jdbcType=VARCHAR},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="GJ_BJGETMXLIST" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJGETMXLIST(
+		#{ywid,mode=IN,jdbcType=NUMERIC},
+		#{query,mode=IN,jdbcType=VARCHAR},
+		#{orderbyname,mode=IN,jdbcType=VARCHAR},
+		#{isasc,mode=IN,jdbcType=NUMERIC},
+		#{pageindex,mode=IN,jdbcType=NUMERIC},
+		#{pagesize,mode=IN,jdbcType=NUMERIC},
+		#{rowid,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="GJ_BJAceept" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJAceept(
+		#{ywid,mode=IN,jdbcType=NUMERIC},
+		#{zxzt,mode=IN,jdbcType=NUMERIC},
+		#{czybm,mode=IN,jdbcType=VARCHAR},
+		#{czymc,mode=IN,jdbcType=VARCHAR},
+		#{errormsg,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="GJ_BJGETBYID" statementType="CALLABLE" parameterType="Map">
+		{call PKG_SL_GJBJ.UPR_GJ_BJGETBYID(
+		#{OUT_DATABJ,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap},
+		#{OUT_DATABJMX,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+</mapper>

@@ -7,8 +7,10 @@ public enum ServiceErrorCode {
 	NEED_MORE_DATA("0003", "{0}"), //
 	JSON_PRASE_EXCEPTION("0004","json转化异常"),//
 	INTERFACE_ERROR("0005","接口访问失败"),
+	PARAM_DEFECT_EXCEPTION("0006","接入参数缺失{0}"),
 	EXCUTE_PROCEDURE_ERROR("E300","执行存储过程异常{0}"),
 	INSERT_TEMP_ERROR("E102","保存临时表异常{0}")
+	
 	;
 
 	private String code;

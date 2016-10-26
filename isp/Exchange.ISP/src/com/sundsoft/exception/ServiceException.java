@@ -22,6 +22,10 @@ public class ServiceException extends RuntimeException {
 	private Object[] arguments;
 
 	private Object dto;
+	
+	public String getErrCode(){
+		return errorCode.getErrorCode();
+	}
 
 	public ServiceErrorCode getErrorCode() {
 		return errorCode;

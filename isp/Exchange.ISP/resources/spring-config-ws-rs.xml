@@ -22,7 +22,7 @@
 
 	<bean id="cxfOutLogger" class="com.sundsoft.webservice.log.LoggingFormatOutInterceptor">
 	</bean>
-	<!--  -->
+	<!-- dt -->
 	<bean id="DtExchangeBean" class="com.sundsoft.webservice.dtExchange.impl.DtExchangeServiceImpl" />
 
 	<jaxws:endpoint id="DtExchangeService" address="/dtExchangeService">
@@ -34,8 +34,18 @@
 			<ref bean="cxfOutLogger" />
 		</jaxws:outInterceptors>
 	</jaxws:endpoint>
-	<!--  -->
-	
+	<!-- gj -->
+	<bean id="GjExchangeBean" class="com.sundsoft.webservice.gjExchange.impl.GjExchangeServiceImpl" />
+
+	<jaxws:endpoint id="GjExchangeService" address="/gjExchangeService">
+		<jaxws:implementor ref="GjExchangeBean" />
+		<jaxws:inInterceptors>
+			<ref bean="cxfInLogger" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="cxfOutLogger" />
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
 	<!--  -->
 	
 	<!--  -->
