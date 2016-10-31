@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.crmExchange.DwqudjMapper">
+
+
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+
+
+	<select id="CRM_QY_DWQYLIST" statementType="CALLABLE" parameterType="Map">
+		{call PKG_CRM_DWGJJZL.UPR_CRM_QY_DWQYLIST(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{qyzt,mode=IN,jdbcType=NUMERIC},
+		#{zxwd,mode=IN,jdbcType=VARCHAR},
+		#{dwxx,mode=IN,jdbcType=VARCHAR},
+		#{dwlx,mode=IN,jdbcType=NUMERIC},
+		#{pageindex,mode=IN,jdbcType=NUMERIC},
+		#{pagesize,mode=IN,jdbcType=NUMERIC},
+		#{rowid,mode=IN,jdbcType=VARCHAR},
+		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="CRM_QY_DWQY" statementType="CALLABLE" parameterType="Map">
+		{call PKG_CRM_DWGJJZL.UPR_CRM_QY_DWQY(
+		#{crmnum,mode=IN,jdbcType=VARCHAR},
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="CRM_SAVEDWZL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_GJ_CRM_DWZL.UPR_CRM_SAVEDWZL(
+		#{crmnum,mode=IN,jdbcType=VARCHAR},
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{zxwdbm,mode=IN,jdbcType=VARCHAR},
+		#{fwqdid,mode=IN,jdbcType=NUMERIC},
+		#{dwlx,mode=IN,jdbcType=NUMERIC},
+		#{dwmc,mode=IN,jdbcType=VARCHAR},
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{szhy,mode=IN,jdbcType=VARCHAR},
+		#{dwdz,mode=IN,jdbcType=VARCHAR},
+		#{frxm,mode=IN,jdbcType=VARCHAR},
+		#{frzjhm,mode=IN,jdbcType=VARCHAR},
+		#{dwdzyx,mode=IN,jdbcType=VARCHAR},
+		#{jbrxm,mode=IN,jdbcType=VARCHAR},
+		#{jbrzjhm,mode=IN,jdbcType=VARCHAR},
+		#{jbrsjhm,mode=IN,jdbcType=VARCHAR},
+		#{jbrwxhm,mode=IN,jdbcType=VARCHAR},
+		#{jbrqqhm,mode=IN,jdbcType=VARCHAR},
+		#{jbrdzyx,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="CRM_GETDWZL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_GJ_CRM_DWZL.UPR_CRM_GETDWZL(
+		#{crmnum,mode=IN,jdbcType=VARCHAR},
+		#{typeid,mode=IN,jdbcType=NUMERIC},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR},
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		)}
+	</select>
+
+	<select id="CRM_DELDWZL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_GJ_CRM_DWZL.UPR_CRM_DELDWZL(
+		#{crmnum,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="CRM_DWZLNEWPWD" statementType="CALLABLE" parameterType="Map">
+		{call PKG_GJ_CRM_DWZL.UPR_CRM_DWZLPWDNEW(
+		#{crmnum,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="CRM_DWZLXGJBRZL" statementType="CALLABLE" parameterType="Map">
+		{call PKG_GJ_CRM_DWZL.UPR_CRM_DWZLXGJBRZL(
+		#{dwzh,mode=IN,jdbcType=VARCHAR},
+		#{devid,mode=IN,jdbcType=NUMERIC},
+		#{jbrxm,mode=IN,jdbcType=VARCHAR},
+		#{jbrzjhm,mode=IN,jdbcType=VARCHAR},
+		#{jbrsjhm,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MSG,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+</mapper>

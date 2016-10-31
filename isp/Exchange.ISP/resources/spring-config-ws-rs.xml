@@ -22,7 +22,7 @@
 
 	<bean id="cxfOutLogger" class="com.sundsoft.webservice.log.LoggingFormatOutInterceptor">
 	</bean>
-	<!-- dt -->
+	<!-- DT -->
 	<bean id="DtExchangeBean" class="com.sundsoft.webservice.dtExchange.impl.DtExchangeServiceImpl" />
 
 	<jaxws:endpoint id="DtExchangeService" address="/dtExchangeService">
@@ -34,7 +34,7 @@
 			<ref bean="cxfOutLogger" />
 		</jaxws:outInterceptors>
 	</jaxws:endpoint>
-	<!-- gj -->
+	<!-- GJ -->
 	<bean id="GjExchangeBean" class="com.sundsoft.webservice.gjExchange.impl.GjExchangeServiceImpl" />
 
 	<jaxws:endpoint id="GjExchangeService" address="/gjExchangeService">
@@ -46,12 +46,42 @@
 			<ref bean="cxfOutLogger" />
 		</jaxws:outInterceptors>
 	</jaxws:endpoint>
-	<!--  -->
-	
-	<!--  -->
-	
-	<!--  -->
-	
+	<!-- CRM -->
+	<bean id="CrmExchangeBean" class="com.sundsoft.webservice.crmExchange.impl.CrmExchangeServiceImpl" />
+
+	<jaxws:endpoint id="CrmExchangeService" address="/crmExchangeService">
+		<jaxws:implementor ref="CrmExchangeBean" />
+		<jaxws:inInterceptors>
+			<ref bean="cxfInLogger" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="cxfOutLogger" />
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
+	<!-- DK -->
+	<bean id="dkExchangeBean" class="com.sundsoft.webservice.dkExchange.impl.DkExchangeServiceImpl" />
+
+	<jaxws:endpoint id="DkExchangeService" address="/dkExchangeService">
+		<jaxws:implementor ref="dkExchangeBean" />
+		<jaxws:inInterceptors>
+			<ref bean="cxfInLogger" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="cxfOutLogger" />
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
+	<!-- XX -->
+	<bean id="xxExchangeBean" class="com.sundsoft.webservice.xxExchange.impl.XxExchangeServiceImpl" />
+
+	<jaxws:endpoint id="XxExchangeService" address="/xxExchangeService">
+		<jaxws:implementor ref="xxExchangeBean" />
+		<jaxws:inInterceptors>
+			<ref bean="cxfInLogger" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="cxfOutLogger" />
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
 	<!--  -->
 	
 	<!--  -->

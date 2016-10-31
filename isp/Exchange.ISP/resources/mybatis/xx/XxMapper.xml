@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sundsoft.mapper.xxExchange.XxMapper">
+
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+	
+	<select id="XX_SAVESMS" statementType="CALLABLE" parameterType="Map">
+		{call PKG_XX_DX.UPR_XX_SAVESMS(
+		#{gjjzxid,mode=IN,jdbcType=NUMERIC},
+		#{ywjkmc,mode=IN,jdbcType=VARCHAR},
+		#{dhhm,mode=IN,jdbcType=VARCHAR},
+		#{dxnr,mode=IN,jdbcType=VARCHAR},
+		#{Out_Msg,mode=OUT,jdbcType=VARCHAR}
+		)}
+	</select>
+
+</mapper>
