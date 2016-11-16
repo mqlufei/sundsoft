@@ -2,176 +2,264 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sundsoft.mapper.bmsExchange.ExchangeMapper">
-	
-	<select id="CallbackLoandeductSinglePayment" statementType="CALLABLE" parameterType="Map">
-        {call PKG_BANK_LOAN_DEDUCT.UPR_BANK_CALLBACKSINGLEPAYMENT(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR},
-            #{hostseqno,mode=IN,jdbcType=VARCHAR}
+
+	<resultMap type="java.util.HashMap" id="baseResultMap"></resultMap>
+
+	<select id="CallbackLoandeductSinglePayment" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_BANK_LOAN_DEDUCT.UPR_BANK_CALLBACKSINGLEPAYMENT(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR},
+		#{hostseqno,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+
+	<select id="CallBackBatchPay" statementType="CALLABLE">
+		{call PKG_BANK_LOAN_BATCHPAY.UPR_BANK_CALLBACKBANKSTATE(
+		#{refseqno,mode=IN,jdbcType=VARCHAR},
+		#{bankXml,mode=IN,jdbcType=VARCHAR}
+		)
+		}
+	</select>
+
+	<select id="CallbackPrePay" statementType="CALLABLE">
+		{call PKG_BANK_LOAN_PREPAY.UPR_BANK_CALLBACKPREPAY(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR},
+		#{hostseqno,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+
+	<select id="CallBackGaBatchPay" statementType="CALLABLE">
+		{call PKG_BANK_GA_BATCHPAY.UPR_BANK_CALLBACKBANKSTATE(
+		#{refseqno,mode=IN,jdbcType=VARCHAR},
+		#{bankXml,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
+	</select>
+
+
+	<select id="CallbackGaSinglePay" statementType="CALLABLE">
+		{call PKG_BANK_GA_BATCHPAY.UPR_BANK_CALLBACKSINGLEPAYMENT(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR},
+		#{hostseqno,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
+	</select>
+
+	<select id="CallbackTranMoney" statementType="CALLABLE">
+		{call PKG_BANK_TRAN_TRANMONEY.UPR_BANK_CALLBACKTRANINFO(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR},
+		#{hostseqno,mode=IN,jdbcType=VARCHAR},
+		#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
+	</select>
+
+	<select id="CallbackQueBalance" statementType="CALLABLE">
+		{call PKG_BANK_QUERY_QUERYDATA.UPR_BANK_CALLBACKQUEBALANCE(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR},
+		#{acctBal,mode=IN,jdbcType=NUMERIC},
+		#{acctRestBal,mode=IN,jdbcType=NUMERIC},
+		#{acctOverBal,mode=IN,jdbcType=NUMERIC},
+		#{acctStatus,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<!-- batch insert -->
+	<insert id="SaveDetailResultToTemp" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into UTB_BANK_TMP_ACCDETAILRESULT (
+		NO,
+		ACCTNO,
+		HOSTSEQNO,
+		TRADECODE,
+		TRADEACCTNO,
+		TRADEACCTNAME,
+		AMT,
+		TRADEDATE,
+		TRADETIME,
+		RESTBAL,
+		ACCORGNO,
+		REMARK,
+		CURRNO,
+		CURRIDEN,
+		BALANCE,
+		OVERBAL,
+		CREDENCETYPE,
+		CREDENCENO,
+		TRADERIVALNO,
+		SUMMARY,
+		CORRECTIDEN,
+		PENNO,
+		CENO,
+		REFSEQNO
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index"
+			separator="UNION ALL">
+			select #{item.NO} NO,
+			#{item.ACCTNO} ACCTNO,
+			#{item.HOSTSEQNO} HOSTSEQNO,
+			#{item.TRADECODE} TRADECODE,
+			#{item.TRADEACCTNO} TRADEACCTNO,
+			#{item.TRADEACCTNAME} TRADEACCTNAME,
+			#{item.AMT} AMT,
+			#{item.TRADEDATE} TRADEDATE,
+			#{item.TRADETIME} TRADETIME,
+			#{item.RESTBAL} RESTBAL,
+			#{item.ACCORGNO} ACCORGNO,
+			#{item.REMARK} REMARK,
+			#{item.CURRNO} CURRNO,
+			#{item.CURRIDEN} CURRIDEN,
+			#{item.BALANCE} BALANCE,
+			#{item.OVERBAL} OVERBAL,
+			#{item.CREDENCETYPE} CREDENCETYPE,
+			#{item.CREDENCENO} CREDENCENO,
+			#{item.TRADERIVALNO} TRADERIVALNO,
+			#{item.SUMMARY} SUMMARY,
+			#{item.CORRECTIDEN} CORRECTIDEN,
+			#{item.PENNO} PENNO,
+			#{item.CENO} CENO,
+			#{item.REFSEQNO} REFSEQNO
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+
+	<select id="CallbackQueDetail" statementType="CALLABLE">
+		{call PKG_BANK_QUERY_QUERYDATA.UPR_BANK_CALLBACKQUERYDETAIL(
+		#{seqno,mode=IN,jdbcType=VARCHAR},
+		#{state,mode=IN,jdbcType=NUMERIC},
+		#{info,mode=IN,jdbcType=VARCHAR}
+		)}
+	</select>
+	<!-- batch insert -->
+	<insert id="SaveNoticeToTemp" parameterType="java.util.List"
+		useGeneratedKeys="false">
+		insert into UTB_TMP_CN_YHJSLSXX (
+		SENDSEQNO,
+		YHJSLSH,
+		FSE,
+		JSFSRQ,
+		ZHAIYAO,
+		YHZHHM,
+		YHDM,
+		ZHHM,
+		ZHMC,
+		TRADETYPE
+		)
+		select a.* from (
+		<foreach collection="list" item="item" index="index"
+			separator="UNION ALL">
+			select #{item.SENDSEQNO} SENDSEQNO,
+			#{item.YHJSLSH} YHJSLSH,
+			#{item.FSE} FSE,
+			#{item.JSFSRQ} JSFSRQ,
+			#{item.ZHAIYAO} ZHAIYAO,
+			#{item.YHZHHM} YHZHHM,
+			#{item.YHDM} YHDM,
+			#{item.ZHHM} ZHHM,
+			#{item.ZHMC} ZHMC,
+			#{item.TRADETYPE} TRADETYPE
+			from dual
+		</foreach>
+		) a
+	</insert>
+
+	<select id="AddNotice" statementType="CALLABLE">
+		{call PKG_BANK_NOTICE.UPR_NOTICE_ADDNOTICE(
+		#{sendSeqNo,mode=IN,jdbcType=VARCHAR})}
+	</select>
+
+	<select id="ProcessGjj101" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ101(
+			#{p_Func,mode=IN,jdbcType=NUMERIC},
+			#{p_CardID,mode=IN,jdbcType=VARCHAR},
+			#{p_OldCardID,mode=IN,jdbcType=VARCHAR},
+			#{p_Name,mode=IN,jdbcType=VARCHAR},
+			#{p_IDCard,mode=IN,jdbcType=VARCHAR},
+			#{p_BankRegCode,mode=IN,jdbcType=VARCHAR},
+			#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR}
+			)
+		}
+	</select>
+	<!-- TODO -->
+	<select id="ProcessGjj102" statementType="CALLABLE"
+		parameterType="Map">
+		{call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ102(
+			
+			)
+		}
+	</select>
+
+	 <select id="ProcessGjj111" statementType="CALLABLE" parameterType="Map">
+        {call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ111(
+            #{p_CardID,mode=IN,jdbcType=VARCHAR},
+            #{p_BankRegCode,mode=IN,jdbcType=VARCHAR},
+            #{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.bmsExchange.ExchangeMapper.baseResultMap}
             )
         }
     </select>
     
-    <select id="CallBackBatchPay"  statementType="CALLABLE">
-        {call PKG_BANK_LOAN_BATCHPAY.UPR_BANK_CALLBACKBANKSTATE(
-            #{refseqno,mode=IN,jdbcType=VARCHAR},
-            #{bankXml,mode=IN,jdbcType=VARCHAR}
-         	)
+    <select id="ProcessGjj112" statementType="CALLABLE" parameterType="Map">
+        {call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ112(
+            #{p_CardID,mode=IN,jdbcType=VARCHAR},
+            #{p_StartDate,mode=IN,jdbcType=VARCHAR},
+            #{p_EndDate,mode=IN,jdbcType=VARCHAR},
+            #{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.bmsExchange.ExchangeMapper.baseResultMap}
+            )
         }
     </select>
     
-    <select id="CallbackPrePay" statementType="CALLABLE">
-        {call PKG_BANK_LOAN_PREPAY.UPR_BANK_CALLBACKPREPAY(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR},
-            #{hostseqno,mode=IN,jdbcType=VARCHAR}
-            )}
+    
+   	<select id="ProcessGjj113" statementType="CALLABLE" parameterType="Map">
+        {call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ113(
+            #{p_CardID,mode=IN,jdbcType=VARCHAR},
+            #{p_IDCard,mode=IN,jdbcType=VARCHAR},
+            #{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.bmsExchange.ExchangeMapper.baseResultMap}
+            )
+        }
     </select>
     
-    <select id="CallBackGaBatchPay"  statementType="CALLABLE">
-        {call PKG_BANK_GA_BATCHPAY.UPR_BANK_CALLBACKBANKSTATE(
-           	#{refseqno,mode=IN,jdbcType=VARCHAR},
-            #{bankXml,mode=IN,jdbcType=VARCHAR},
-        	#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
+    <select id="ProcessGjj114" statementType="CALLABLE" parameterType="Map">
+        {call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ114(
+            #{p_CardID,mode=IN,jdbcType=VARCHAR},
+            #{p_IDCard,mode=IN,jdbcType=VARCHAR},
+            #{p_StartDate,mode=IN,jdbcType=VARCHAR},
+            #{p_EndDate,mode=IN,jdbcType=VARCHAR},
+            #{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.bmsExchange.ExchangeMapper.baseResultMap}
+            )
+        }
     </select>
     
-    
-    <select id="CallbackGaSinglePay" statementType="CALLABLE">
-        {call PKG_BANK_GA_BATCHPAY.UPR_BANK_CALLBACKSINGLEPAYMENT(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR},
-            #{hostseqno,mode=IN,jdbcType=VARCHAR},
-        	#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
+    <select id="ProcessGjj115" statementType="CALLABLE" parameterType="Map">
+        {call PKG_CARD_GJJBANK.UPR_CARD_PROCESSGJJ115(
+            #{p_IDCard,mode=IN,jdbcType=VARCHAR},
+            #{p_Name,mode=IN,jdbcType=VARCHAR},
+            #{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_CODE,mode=OUT,jdbcType=VARCHAR},
+			#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.bmsExchange.ExchangeMapper.baseResultMap}
+            )
+        }
     </select>
-    
-    <select id="CallbackTranMoney"  statementType="CALLABLE">
-        {call PKG_BANK_TRAN_TRANMONEY.UPR_BANK_CALLBACKTRANINFO(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR},
-            #{hostseqno,mode=IN,jdbcType=VARCHAR},
-        	#{OUT_MESSAGE,mode=OUT,jdbcType=VARCHAR})}
-    </select>
-    
-    <select id="CallbackQueBalance"  statementType="CALLABLE">
-        {call PKG_BANK_QUERY_QUERYDATA.UPR_BANK_CALLBACKQUEBALANCE(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR},
-            #{acctBal,mode=IN,jdbcType=NUMERIC},
-            #{acctRestBal,mode=IN,jdbcType=NUMERIC},
-            #{acctOverBal,mode=IN,jdbcType=NUMERIC},
-            #{acctStatus,mode=IN,jdbcType=VARCHAR}
-            )}
-    </select>
-    <!-- batch insert -->
-    <insert id="SaveDetailResultToTemp"   parameterType="java.util.List" useGeneratedKeys="false">   
-		    insert into UTB_BANK_TMP_ACCDETAILRESULT (	
-		    		NO,
-					ACCTNO,
-					HOSTSEQNO,
-					TRADECODE,
-					TRADEACCTNO,
-					TRADEACCTNAME,
-					AMT,
-					TRADEDATE,
-					TRADETIME,
-					RESTBAL,
-					ACCORGNO,
-					REMARK,
-					CURRNO,
-					CURRIDEN,
-					BALANCE,
-					OVERBAL,
-					CREDENCETYPE,
-					CREDENCENO,
-					TRADERIVALNO,
-					SUMMARY,
-					CORRECTIDEN,
-					PENNO,
-					CENO,
-					REFSEQNO
-					)   
-					select a.* from (
-	    <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
-	        select	#{item.NO} NO,
-					#{item.ACCTNO} ACCTNO,
-					#{item.HOSTSEQNO} HOSTSEQNO,
-					#{item.TRADECODE} TRADECODE,
-					#{item.TRADEACCTNO} TRADEACCTNO,
-					#{item.TRADEACCTNAME} TRADEACCTNAME,
-					#{item.AMT} AMT,
-					#{item.TRADEDATE} TRADEDATE,
-					#{item.TRADETIME} TRADETIME,
-					#{item.RESTBAL} RESTBAL,
-					#{item.ACCORGNO} ACCORGNO,
-					#{item.REMARK} REMARK,
-					#{item.CURRNO} CURRNO,
-					#{item.CURRIDEN} CURRIDEN,
-					#{item.BALANCE} BALANCE,
-					#{item.OVERBAL} OVERBAL,
-					#{item.CREDENCETYPE} CREDENCETYPE,
-					#{item.CREDENCENO} CREDENCENO,
-					#{item.TRADERIVALNO} TRADERIVALNO,
-					#{item.SUMMARY} SUMMARY,
-					#{item.CORRECTIDEN} CORRECTIDEN,
-					#{item.PENNO} PENNO,
-					#{item.CENO} CENO,
-					#{item.REFSEQNO} REFSEQNO
-					from dual 
-	    </foreach>  
-	    ) a
-	</insert>  
-    
-    
-    <select id="CallbackQueDetail"  statementType="CALLABLE">
-        {call PKG_BANK_QUERY_QUERYDATA.UPR_BANK_CALLBACKQUERYDETAIL(
-            #{seqno,mode=IN,jdbcType=VARCHAR},
-            #{state,mode=IN,jdbcType=NUMERIC},
-            #{info,mode=IN,jdbcType=VARCHAR}
-            )}
-    </select>
-     <!-- batch insert -->
-    <insert id="SaveNoticeToTemp"  parameterType="java.util.List" useGeneratedKeys="false">  
-		    insert into UTB_TMP_CN_YHJSLSXX (
-		    		SENDSEQNO, 
-	                YHJSLSH,
-	                FSE,
-	                JSFSRQ,
-	                ZHAIYAO,
-	                YHZHHM,
-	                YHDM,
-	                ZHHM,
-	                ZHMC,
-	                TRADETYPE
-	                )   
-	    	select a.* from (
-	    <foreach collection="list" item="item" index="index" separator="UNION ALL"> 
-	        select	#{item.SENDSEQNO} SENDSEQNO,
-	                #{item.YHJSLSH} YHJSLSH,
-	                #{item.FSE} FSE,
-	                #{item.JSFSRQ} JSFSRQ,
-	                #{item.ZHAIYAO} ZHAIYAO,
-	                #{item.YHZHHM} YHZHHM,
-	                #{item.YHDM} YHDM,
-	                #{item.ZHHM} ZHHM,
-	                #{item.ZHMC} ZHMC,
-	                #{item.TRADETYPE} TRADETYPE
-	         from dual  
-	    </foreach> 
-	    ) a
-	</insert>  
-    
-    <select id="AddNotice"  statementType="CALLABLE">
-        {call PKG_BANK_NOTICE.UPR_NOTICE_ADDNOTICE(
-            #{sendSeqNo,mode=IN,jdbcType=VARCHAR})}
-    </select>
-    
-    
-    
+	
+	
 
 
 
