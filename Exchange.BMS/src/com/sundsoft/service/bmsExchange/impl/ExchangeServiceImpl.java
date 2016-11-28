@@ -137,9 +137,9 @@ public class ExchangeServiceImpl implements IExchangeService {
 		params.put("hostseqno", hostseqno);
 		try {
 			exchangeMapper.CallbackGaSinglePay(params);
-			if(StringUtils.isNotBlank((String)params.get("OUT_MESSAGE"))){
+			if(params.get("OUT_MESSAGE")!=null&&StringUtils.isNotBlank(params.get("OUT_MESSAGE").toString())){
 				resMap.put("RtnCode", ERR_CODE);
-				resMap.put("RtnMsg", (String)params.get("OUT_MESSAGE"));
+				resMap.put("RtnMsg", params.get("OUT_MESSAGE").toString());
 				return resMap;
 			}
 			resMap.put("RtnCode", SUCC_CODE);
@@ -163,9 +163,9 @@ public class ExchangeServiceImpl implements IExchangeService {
 		params.put("hostseqno", hostseqno);
 		try {
 			exchangeMapper.CallbackTranMoney(params);
-			if(StringUtils.isNotBlank((String)params.get("OUT_MESSAGE"))){
+			if(params.get("OUT_MESSAGE")!=null&&StringUtils.isNotBlank(params.get("OUT_MESSAGE").toString())){
 				resMap.put("RtnCode", ERR_CODE);
-				resMap.put("RtnMsg", (String)params.get("OUT_MESSAGE"));
+				resMap.put("RtnMsg", params.get("OUT_MESSAGE").toString());
 				return resMap;
 			}
 			resMap.put("RtnCode", SUCC_CODE);
@@ -360,6 +360,16 @@ public class ExchangeServiceImpl implements IExchangeService {
 		} catch (Exception e) {
 			log.error("执行存储过程错误:", e);
 			throw new ServiceException(ServiceErrorCode.EXCUTE_PROCEDURE_ERROR, e.getMessage());
+		}
+	}
+	
+	@Override
+	public void executeCnYhdztz() throws ServiceException {
+		try {
+			exchangeMapper.executeCnYhdztz();
+		} catch (Exception e) {
+			log.error("执行存储过程错误:", e);
+			throw new ServiceException(ServiceErrorCode.EXCUTE_PROCEDURE_ERROR,"PKG_CN_YWJK.UPR_CN_YHDZTZ");
 		}
 	}
 

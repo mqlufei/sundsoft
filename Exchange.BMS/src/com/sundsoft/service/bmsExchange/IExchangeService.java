@@ -48,5 +48,8 @@ public interface IExchangeService {
 	public Map<String,Object> ProcessGjj114(String p_CardID, String p_IDCard, String p_StartDate, String p_EndDate) throws ServiceException;
 	
 	public Map<String,Object> ProcessGjj115(String p_IDCard, String p_Name) throws ServiceException;
+	
+	//2016-11-28新增
+	public void executeCnYhdztz() throws ServiceException;
 
 }

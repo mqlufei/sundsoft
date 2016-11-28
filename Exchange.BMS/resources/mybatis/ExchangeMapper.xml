@@ -260,7 +260,9 @@
     </select>
 	
 	
-
+ 	<select id="executeCnYhdztz" statementType="CALLABLE">
+        {call PKG_CN_YWJK.UPR_CN_YHDZTZ()}
+    </select>
 
 
 </mapper>

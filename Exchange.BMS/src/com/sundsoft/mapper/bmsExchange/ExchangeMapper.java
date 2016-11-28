@@ -51,4 +51,6 @@ public interface ExchangeMapper {
 
 	public Map<String, Object> ProcessGjj115(Map<String, Object> params) throws Exception;
 
+	public void executeCnYhdztz() throws Exception;
+
 }

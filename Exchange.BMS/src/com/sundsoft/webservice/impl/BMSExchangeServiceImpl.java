@@ -230,6 +230,7 @@ public class BMSExchangeServiceImpl implements IBMSExchangeServices {
 				return "{ 'rtnCode':'-1','rtnMessage':'批量存入临时表失败,错误消息：'" + exchangeService.getErrorMsg() + "}";
 			}
 			resMap = exchangeService.AddNotice(m_Notice.getSendSeqNo());
+			
 			String m_RtnCode = resMap.get("RtnCode");
 			m_ErrorInfo = resMap.get("RtnMsg");
 			return "{ 'rtnCode':'" + m_RtnCode + "','rtnMessage':'" + m_ErrorInfo + "'}";
