@@ -27,7 +27,7 @@ public class Crm_GrqudjServiceImpl implements ICrm_GrqudjService {
 	public Map<String, Object> CRM_QY_GETGRZLLIST(GRQUDJ_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = grqudjMapper.CRM_QY_GETGRZLLIST(params);
+			grqudjMapper.CRM_QY_GETGRZLLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -40,7 +40,7 @@ public class Crm_GrqudjServiceImpl implements ICrm_GrqudjService {
 	public String CRM_QY_GRZL(GRQUDJ_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = grqudjMapper.CRM_QY_GRZL(params);
+			grqudjMapper.CRM_QY_GRZL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -53,7 +53,7 @@ public class Crm_GrqudjServiceImpl implements ICrm_GrqudjService {
 	public String CRM_SAVEGRZL(GRQUDJ_SaveModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = grqudjMapper.CRM_SAVEGRZL(params);
+			grqudjMapper.CRM_SAVEGRZL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

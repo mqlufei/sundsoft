@@ -29,7 +29,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public Map<String, Object> GJ_TGGETLIST(TG_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGGETLIST(params);
+			tgMapper.GJ_TGGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -42,7 +42,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public String GJ_TGZXSH(TG_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGZXSH(params);
+			tgMapper.GJ_TGZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -55,7 +55,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public String GJ_TGYYBL(TG_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGYYBL(params);
+			tgMapper.GJ_TGYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -68,7 +68,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public Map<String, Object> GJ_TGGETMXLIST(TG_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGGETMXLIST(params);
+			tgMapper.GJ_TGGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -81,7 +81,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public Map<String, Object> GJ_TGGETBYDWZH(TG_GetbydwzhModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGGETBYDWZH(params);
+			tgMapper.GJ_TGGETBYDWZH(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -94,7 +94,7 @@ public class Gj_TgServiceImpl implements IGj_TgService {
 	public String GJ_TGACEEPT(TG_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = tgMapper.GJ_TGACEEPT(params);
+			tgMapper.GJ_TGACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

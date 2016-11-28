@@ -30,7 +30,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public Map<String, Object> GJ_YWSLGETLIST(YWSL_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLGETLIST(params);
+			yWSLMapper.GJ_YWSLGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public String GJ_YWSLZXSH(YWSL_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLZXSH(params);
+			yWSLMapper.GJ_YWSLZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -56,7 +56,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public String GJ_YWSLYYBL(YWSL_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLYYBL(params);
+			yWSLMapper.GJ_YWSLYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -69,7 +69,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public Map<String, Object> GJ_YWSLGETMXLIST(YWSL_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLGETMXLIST(params);
+			yWSLMapper.GJ_YWSLGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -82,7 +82,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public Map<String, Object> GJ_YWSLGETBYDWZH(YWSL_GetbydwzhModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLGETBYDWZH(params);
+			yWSLMapper.GJ_YWSLGETBYDWZH(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -95,7 +95,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public String GJ_YWSLACEEPT(YWSL_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLACEEPT(params);
+			yWSLMapper.GJ_YWSLACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -108,7 +108,7 @@ public class Gj_YWSLServiceImpl implements IGj_YWSLService {
 	public Map<String, Object> GJ_YWSLGETZXBYID(YWSL_GetzxbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = yWSLMapper.GJ_YWSLGETZXBYID(params);
+			yWSLMapper.GJ_YWSLGETZXBYID(params);
 			return params;
 		}
 		catch (Exception e) {

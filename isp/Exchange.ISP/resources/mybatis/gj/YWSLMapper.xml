@@ -23,7 +23,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.YWSLMapper.baseResultMap}
 		)}
 	</select>
 
@@ -64,7 +64,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.YWSLMapper.baseResultMap}
 		)}
 	</select>
 
@@ -74,7 +74,7 @@
 		#{fwqdid,mode=IN,jdbcType=NUMERIC},
 		#{dwzh,mode=IN,jdbcType=VARCHAR},
 		#{tqbllx,mode=IN,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.YWSLMapper.baseResultMap}
 		)}
 	</select>
 
@@ -92,7 +92,7 @@
 	<select id="GJ_YWSLGETZXBYID" statementType="CALLABLE" parameterType="Map">
 		{call Pkg_Sl_TqYWSL.Upr_TQ_YWSLGetByID(
 		#{ywid,mode=IN,jdbcType=NUMERIC},
-		#{Out_Data,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{Out_Data,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.YWSLMapper.baseResultMap}
 		)}
 	</select>
 

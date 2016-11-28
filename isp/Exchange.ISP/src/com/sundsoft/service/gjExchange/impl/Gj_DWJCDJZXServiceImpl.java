@@ -28,7 +28,7 @@ public class Gj_DWJCDJZXServiceImpl implements IGj_DWJCDJZXService {
 	public Map<String, Object> GJ_DWJCDJZXGETLIST(DWJCDJZX_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJZXMapper.GJ_DWJCDJZXGETLIST(params);
+			dWJCDJZXMapper.GJ_DWJCDJZXGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class Gj_DWJCDJZXServiceImpl implements IGj_DWJCDJZXService {
 	public String GJ_DWJCDJZXZXSH(DWJCDJZX_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJZXMapper.GJ_DWJCDJZXZXSH(params);
+			dWJCDJZXMapper.GJ_DWJCDJZXZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class Gj_DWJCDJZXServiceImpl implements IGj_DWJCDJZXService {
 	public String GJ_DWJCDJZXYYBL(DWJCDJZX_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJZXMapper.GJ_DWJCDJZXYYBL(params);
+			dWJCDJZXMapper.GJ_DWJCDJZXYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -67,7 +67,7 @@ public class Gj_DWJCDJZXServiceImpl implements IGj_DWJCDJZXService {
 	public Map<String, Object> GJ_DWJCDJZXGETBYID(DWJCDJZX_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJZXMapper.GJ_DWJCDJZXGETBYID(params);
+			dWJCDJZXMapper.GJ_DWJCDJZXGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -80,7 +80,7 @@ public class Gj_DWJCDJZXServiceImpl implements IGj_DWJCDJZXService {
 	public Map<String, Object> GJ_DWJCDJZXAceept(DWJCDJZX_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJZXMapper.GJ_DWJCDJZXAceept(params);
+			dWJCDJZXMapper.GJ_DWJCDJZXAceept(params);
 			return params;
 		}
 		catch (Exception e) {

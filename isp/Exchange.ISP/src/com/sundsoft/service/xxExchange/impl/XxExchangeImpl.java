@@ -29,7 +29,7 @@ public class XxExchangeImpl implements IXxExchange{
 		params.put("dhhm", P_DHHM);
 		params.put("dxnr", P_DXNR);
 		try {
-			params = xxMapper.XX_SAVESMS(params);
+			xxMapper.XX_SAVESMS(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

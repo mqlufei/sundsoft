@@ -3,7 +3,6 @@ package com.sundsoft.webservice.dtExchange;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import com.sundsoft.model.in.dt.TableParam;
 import com.sundsoft.model.in.dt.VisitControl;
 
 @WebService(targetNamespace = IDtExchangeService.NAME_SPACE)
@@ -23,7 +22,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB101")
-	public String DT_GB101(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB101(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -37,7 +36,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB102")
-	public String DT_GB102(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB102(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -51,7 +50,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB201")
-	public String DT_GB201(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB201(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -65,7 +64,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB202")
-	public String DT_GB202(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB202(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -79,7 +78,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB203")
-	public String DT_GB203(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB203(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -93,7 +92,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB204")
-	public String DT_GB204(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB204(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -107,7 +106,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB301")
-	public String DT_GB301(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB301(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -121,7 +120,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB302")
-	public String DT_GB302(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB302(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -135,7 +134,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB303")
-	public String DT_GB303(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB303(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -149,7 +148,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB304")
-	public String DT_GB304(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB304(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -163,7 +162,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB305")
-	public String DT_GB305(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB305(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -177,7 +176,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB306")
-	public String DT_GB306(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB306(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -191,7 +190,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_DK_LPXM_V5")
-	public String DT_DK_LPXM_V5(VisitControl v_Control, TableParam tableParam);
+	public String DT_DK_LPXM_V5(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -205,7 +204,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_DK_LPXMMX_V5")
-	public String DT_DK_LPXMMX_V5(VisitControl v_Control, TableParam tableParam);
+	public String DT_DK_LPXMMX_V5(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -219,7 +218,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_DK_KFS_V5")
-	public String DT_DK_KFS_V5(VisitControl v_Control, TableParam tableParam);
+	public String DT_DK_KFS_V5(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -233,7 +232,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_DK_DKJD_V5")
-	public String DT_DK_DKJD_V5(VisitControl v_Control, TableParam tableParam);
+	public String DT_DK_DKJD_V5(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -247,7 +246,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_GB202EXT")
-	public String DT_GB202EXT(VisitControl v_Control, TableParam tableParam);
+	public String DT_GB202EXT(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -261,7 +260,7 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_MARGIN_MAIN")
-	public String DT_MARGIN_MAIN(VisitControl v_Control, TableParam tableParam);
+	public String DT_MARGIN_MAIN(VisitControl v_Control, String tableParam);
 
 	/**
 	 * 
@@ -275,6 +274,6 @@ public interface IDtExchangeService {
 	* @throws
 	 */
 	@WebMethod(operationName = "DT_MARGIN_DETIALS")
-	public String DT_MARGIN_DETIALS(VisitControl v_Control, TableParam tableParam);
+	public String DT_MARGIN_DETIALS(VisitControl v_Control, String tableParam);
 
 }

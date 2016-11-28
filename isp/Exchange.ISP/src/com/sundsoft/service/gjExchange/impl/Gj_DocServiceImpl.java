@@ -24,7 +24,7 @@ public class Gj_DocServiceImpl implements IGj_DocService {
 	public Map<String, Object> Doc_GetDocByID(GetDocByID_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = docMapper.Doc_GetDocByID(params);
+			docMapper.Doc_GetDocByID(params);
 			return params;
 		}
 		catch (Exception e) {

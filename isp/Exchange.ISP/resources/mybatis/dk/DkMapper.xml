@@ -23,7 +23,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.dkExchange.DkMapper.baseResultMap}
 		)}
 	</select>
 
@@ -50,8 +50,8 @@
 
 	<select id="DK_V5DKSLGETBYID" statementType="CALLABLE" parameterType="Map">
 		{call PKG_SL_DKSL_V5.UPR_DK_DKSLGETBYID(
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap},
-		#{OUT_DATADBR,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.dkExchange.DkMapper.baseResultMap},
+		#{OUT_DATADBR,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.dkExchange.DkMapper.baseResultMap}
 		)}
 	</select>
 
@@ -68,13 +68,13 @@
 
 	<select id="DK_V5DKSLGetDocsViewList" statementType="CALLABLE" parameterType="Map">
 		{call PKG_SL_DKSL_V5.UPR_DK_DKSLGetDocsViewList(
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.dkExchange.DkMapper.baseResultMap}
 		)}
 	</select>
 
 	<select id="DK_V5DKSLGetDocsByID" statementType="CALLABLE" parameterType="Map">
 		{call PKG_SL_DKSL_V5.UPR_DK_DKSLGetDocsByID(
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.dkExchange.DkMapper.baseResultMap}
 		)}
 	</select>
 

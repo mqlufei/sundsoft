@@ -21,7 +21,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.JchjMapper.baseResultMap}
 		)}
 	</select>
 
@@ -48,7 +48,7 @@
 
 	<select id="GJ_JCHJGETBYID" statementType="CALLABLE" parameterType="Map">
 		{call Pkg_Sl_Gjjchj.Upr_Gj_Jchjgetbyid(
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.JchjMapper.baseResultMap}
 		)}
 	</select>
 

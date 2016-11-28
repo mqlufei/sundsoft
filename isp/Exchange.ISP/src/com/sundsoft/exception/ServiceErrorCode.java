@@ -5,7 +5,7 @@ public enum ServiceErrorCode {
 	SYSTEM_ERROR("0001", "系统异常{0}"), //
 	PROPERTY_ERROR("0002", "系统配置有误"), //
 	NEED_MORE_DATA("0003", "{0}"), //
-	JSON_PRASE_EXCEPTION("0004","json转化异常"),//
+	JSON_PRASE_EXCEPTION("0004","json转化异常{0}"),//
 	INTERFACE_ERROR("0005","接口访问失败"),
 	PARAM_DEFECT_EXCEPTION("0006","接入参数缺失{0}"),
 	EXCUTE_PROCEDURE_ERROR("E300","执行存储过程异常{0}"),

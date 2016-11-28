@@ -8,7 +8,7 @@
 		#{ywid,mode=IN,jdbcType=NUMERIC},
 		#{typeid,mode=IN,jdbcType=NUMERIC},
 		#{certstyle,mode=IN,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.DocMapper.baseResultMap}
 		)}
 	</select>
 

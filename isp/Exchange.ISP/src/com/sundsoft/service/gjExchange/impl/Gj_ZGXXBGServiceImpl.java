@@ -29,7 +29,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public Map<String, Object> GJ_ZGXXBGGETLIST(ZGXXBG_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGGETLIST(params);
+			zGXXBGMapper.GJ_ZGXXBGGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -42,7 +42,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public String GJ_ZGXXBGZXSH(ZGXXBG_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGZXSH(params);
+			zGXXBGMapper.GJ_ZGXXBGZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -55,7 +55,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public String GJ_ZGXXBGYYBL(ZGXXBG_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGYYBL(params);
+			zGXXBGMapper.GJ_ZGXXBGYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -68,7 +68,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public Map<String, Object> GJ_ZGXXBGGETMXLIST(ZGXXBG_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGGETMXLIST(params);
+			zGXXBGMapper.GJ_ZGXXBGGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -81,7 +81,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public Map<String, Object> GJ_ZGXXBGGETBYDWZH(ZGXXBG_GetbydwzhModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGGETBYDWZH(params);
+			zGXXBGMapper.GJ_ZGXXBGGETBYDWZH(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -94,7 +94,7 @@ public class Gj_ZGXXBGServiceImpl implements IGj_ZGXXBGService {
 	public String GJ_ZGXXBGACEEPT(ZGXXBG_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = zGXXBGMapper.GJ_ZGXXBGACEEPT(params);
+			zGXXBGMapper.GJ_ZGXXBGACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

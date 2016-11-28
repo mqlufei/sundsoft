@@ -29,7 +29,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public Map<String, Object> GJ_LHJYRYJCGETLIST(LHJYRYJC_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCGETLIST(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -42,7 +42,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public String GJ_LHJYRYJCZXSH(LHJYRYJC_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCZXSH(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -55,7 +55,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public String GJ_LHJYRYJCYYBL(LHJYRYJC_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCYYBL(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -68,7 +68,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public Map<String, Object> GJ_LHJYRYJCGETMXLIST(LHJYRYJC_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCGETMXLIST(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -81,7 +81,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public String GJ_LHJYRYJCACEEPT(LHJYRYJC_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCACEEPT(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -94,7 +94,7 @@ public class Gj_LHJYRYJCServiceImpl implements IGj_LHJYRYJCService {
 	public Map<String, Object> GJ_LHJYRYJCGETBYID(LHJYRYJC_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = lHJYRYJCMapper.GJ_LHJYRYJCGETBYID(params);
+			lHJYRYJCMapper.GJ_LHJYRYJCGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {

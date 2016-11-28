@@ -32,7 +32,7 @@ public class DkServiceImpl implements IDkService {
 	public Map<String, Object> DK_V5DKSLGETLIST(V5_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLGETLIST(params);
+			dkMapper.DK_V5DKSLGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -45,7 +45,7 @@ public class DkServiceImpl implements IDkService {
 	public String DK_V5DKSLZXSH(V5_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLZXSH(params);
+			dkMapper.DK_V5DKSLZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -58,7 +58,7 @@ public class DkServiceImpl implements IDkService {
 	public String DK_V5DKSLYYBL(V5_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLYYBL(params);
+			dkMapper.DK_V5DKSLYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -71,7 +71,7 @@ public class DkServiceImpl implements IDkService {
 	public Map<String, Object> DK_V5DKSLGETBYID(V5_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLGETBYID(params);
+			dkMapper.DK_V5DKSLGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -84,7 +84,7 @@ public class DkServiceImpl implements IDkService {
 	public String DK_V5DKSLAceept(V5_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLAceept(params);
+			dkMapper.DK_V5DKSLAceept(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -97,7 +97,7 @@ public class DkServiceImpl implements IDkService {
 	public Map<String, Object> DK_V5DKSLGetDocsViewList(V5_DocsviewModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLGetDocsViewList(params);
+			dkMapper.DK_V5DKSLGetDocsViewList(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -110,7 +110,7 @@ public class DkServiceImpl implements IDkService {
 	public Map<String, Object> DK_V5DKSLGetDocsByID(V5_GetdocsbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dkMapper.DK_V5DKSLGetDocsByID(params);
+			dkMapper.DK_V5DKSLGetDocsByID(params);
 			return params;
 		}
 		catch (Exception e) {

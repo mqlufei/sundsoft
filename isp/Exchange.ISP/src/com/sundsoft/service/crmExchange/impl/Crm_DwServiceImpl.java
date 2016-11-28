@@ -26,7 +26,7 @@ public class Crm_DwServiceImpl implements ICrm_DwService {
 			params.put("crmNum", crmNum);
 			params.put("rzfs", rzfs);
 			params.put("rzyx", rzyx);
-			params = dwMapper.ZXWDDT(params);
+			dwMapper.ZXWDDT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class Crm_DwServiceImpl implements ICrm_DwService {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("crmNum", crmNum);
 			params.put("typeId", typeId);
-			params = dwMapper.CRM_GETDWZL(params);
+			dwMapper.CRM_GETDWZL(params);
 			return params;
 		}
 		catch (Exception e) {

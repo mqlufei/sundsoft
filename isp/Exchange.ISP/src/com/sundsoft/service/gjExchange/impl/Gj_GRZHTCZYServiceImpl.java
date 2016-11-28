@@ -29,7 +29,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public Map<String, Object> GJ_GRZHTCZYGETLIST(GRZHTCZY_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYGETLIST(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -42,7 +42,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public String GJ_GRZHTCZYZXSH(GRZHTCZY_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYZXSH(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -55,7 +55,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public String GJ_GRZHTCZYYYBL(GRZHTCZY_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYYYBL(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -68,7 +68,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public Map<String, Object> GJ_GRZHTCZYGETMXLIST(GRZHTCZY_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYGETMXLIST(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -81,7 +81,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public String GJ_GRZHTCZYGETBYDWZH(GRZHTCZY_GetbydwzhModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYGETBYDWZH(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYGETBYDWZH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -94,7 +94,7 @@ public class Gj_GRZHTCZYServiceImpl implements IGj_GRZHTCZYService {
 	public String GJ_GRZHTCZYACEEPT(GRZHTCZY_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = gRZHTCZYMapper.GJ_GRZHTCZYACEEPT(params);
+			gRZHTCZYMapper.GJ_GRZHTCZYACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

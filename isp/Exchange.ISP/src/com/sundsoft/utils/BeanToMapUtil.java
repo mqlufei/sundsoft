@@ -86,10 +86,7 @@ public class BeanToMapUtil {
 				// 下面一句可以 try 起来，这样当一个属性赋值失败的时候就不会影响其他属性赋值。
 				Object value = map.get(propertyName);
 
-				Object[] args = new Object[1];
-				args[0] = value;
-
-				descriptor.getWriteMethod().invoke(obj, args);
+				BeanUtils.setProperty(obj, propertyName, value);
 			}
 		}
 		return obj;

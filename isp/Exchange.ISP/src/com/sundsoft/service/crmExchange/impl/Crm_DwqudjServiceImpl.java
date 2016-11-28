@@ -30,7 +30,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public Map<String, Object> CRM_QY_DWQYLIST(DWQUDJ_GetlistdwModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_QY_DWQYLIST(params);
+			dwqudjMapper.CRM_QY_DWQYLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public String CRM_QY_DWQY(DWQUDJ_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_QY_DWQY(params);
+			dwqudjMapper.CRM_QY_DWQY(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -56,7 +56,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public String CRM_SAVEDWZL(DWQUDJ_SaveModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_SAVEDWZL(params);
+			dwqudjMapper.CRM_SAVEDWZL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -69,7 +69,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public Map<String, Object> CRM_GETDWZL(DWQUDJ_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_GETDWZL(params);
+			dwqudjMapper.CRM_GETDWZL(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -82,7 +82,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public String CRM_DELDWZL(DWQUDJ_DelModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_DELDWZL(params);
+			dwqudjMapper.CRM_DELDWZL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -95,7 +95,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public String CRM_DWZLNEWPWD(DWQUDJ_NewpwdModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_DWZLNEWPWD(params);
+			dwqudjMapper.CRM_DWZLNEWPWD(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -108,7 +108,7 @@ public class Crm_DwqudjServiceImpl implements ICrm_DwqudjService {
 	public String CRM_DWZLXGJBRZL(DWQUDJ_GxjbrxxModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dwqudjMapper.CRM_DWZLXGJBRZL(params);
+			dwqudjMapper.CRM_DWZLXGJBRZL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

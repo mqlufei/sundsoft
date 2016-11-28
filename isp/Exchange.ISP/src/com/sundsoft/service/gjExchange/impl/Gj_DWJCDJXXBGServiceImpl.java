@@ -28,7 +28,7 @@ public class Gj_DWJCDJXXBGServiceImpl implements IGj_DWJCDJXXBGService {
 	public Map<String, Object> GJ_DWJCDJXXBGGETLIST(DWJCDJXXBG_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJXXBGMapper.GJ_DWJCDJXXBGGETLIST(params);
+			dWJCDJXXBGMapper.GJ_DWJCDJXXBGGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class Gj_DWJCDJXXBGServiceImpl implements IGj_DWJCDJXXBGService {
 	public String GJ_DWJCDJXXBGZXSH(DWJCDJXXBG_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJXXBGMapper.GJ_DWJCDJXXBGZXSH(params);
+			dWJCDJXXBGMapper.GJ_DWJCDJXXBGZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class Gj_DWJCDJXXBGServiceImpl implements IGj_DWJCDJXXBGService {
 	public String GJ_DWJCDJXXBGYYBL(DWJCDJXXBG_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJXXBGMapper.GJ_DWJCDJXXBGYYBL(params);
+			dWJCDJXXBGMapper.GJ_DWJCDJXXBGYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -67,7 +67,7 @@ public class Gj_DWJCDJXXBGServiceImpl implements IGj_DWJCDJXXBGService {
 	public Map<String, Object> GJ_DWJCDJXXBGGETBYID(DWJCDJXXBG_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJXXBGMapper.GJ_DWJCDJXXBGGETBYID(params);
+			dWJCDJXXBGMapper.GJ_DWJCDJXXBGGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -80,7 +80,7 @@ public class Gj_DWJCDJXXBGServiceImpl implements IGj_DWJCDJXXBGService {
 	public String GJ_DWJCDJXXBGAceept(DWJCDJXXBG_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = dWJCDJXXBGMapper.GJ_DWJCDJXXBGAceept(params);
+			dWJCDJXXBGMapper.GJ_DWJCDJXXBGAceept(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

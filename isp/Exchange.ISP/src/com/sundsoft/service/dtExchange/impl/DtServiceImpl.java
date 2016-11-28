@@ -1,5 +1,6 @@
 package com.sundsoft.service.dtExchange.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sundsoft.exception.ServiceErrorCode;
 import com.sundsoft.exception.ServiceException;
 import com.sundsoft.mapper.dtExchange.DtMapper;
@@ -44,12 +47,15 @@ public class DtServiceImpl implements IDtService {
 	private DtMapper dtMapper;
 
 	private static final Logger log = LogManager.getLogger(DtServiceImpl.class);
+	
+	private List<Map<String,Object>> p_Data = null;
 
 	@Override
-	public void Insert_GB101_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB101_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb101TempVo> items = new ArrayList<UtbGb101TempVo>();
 		UtbGb101TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb101TempVo) BeanToMapUtil.convertMap(UtbGb101TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -57,8 +63,10 @@ public class DtServiceImpl implements IDtService {
 				vo.setSftb(0);
 				items.add(vo);
 			}
-
+			
 			dtMapper.insertUtbGb101Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -68,10 +76,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB102_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB102_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb102TempVo> items = new ArrayList<UtbGb102TempVo>();
 		UtbGb102TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb102TempVo) BeanToMapUtil.convertMap(UtbGb102TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -81,6 +90,8 @@ public class DtServiceImpl implements IDtService {
 			}
 
 			dtMapper.insertUtbGb102Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -90,10 +101,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB201_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB201_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb201TempVo> items = new ArrayList<UtbGb201TempVo>();
 		UtbGb201TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb201TempVo) BeanToMapUtil.convertMap(UtbGb201TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -103,6 +115,8 @@ public class DtServiceImpl implements IDtService {
 			}
 
 			dtMapper.insertUtbGb201Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -112,10 +126,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB202_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB202_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb202TempVo> items = new ArrayList<UtbGb202TempVo>();
 		UtbGb202TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb202TempVo) BeanToMapUtil.convertMap(UtbGb202TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -124,6 +139,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb202Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -133,10 +150,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB203_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB203_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb203TempVo> items = new ArrayList<UtbGb203TempVo>();
 		UtbGb203TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb203TempVo) BeanToMapUtil.convertMap(UtbGb203TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -145,6 +163,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb203Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -154,10 +174,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB204_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB204_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb204TempVo> items = new ArrayList<UtbGb204TempVo>();
 		UtbGb204TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb204TempVo) BeanToMapUtil.convertMap(UtbGb204TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -166,6 +187,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb204Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -175,10 +198,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB301_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB301_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb301TempVo> items = new ArrayList<UtbGb301TempVo>();
 		UtbGb301TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb301TempVo) BeanToMapUtil.convertMap(UtbGb301TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -187,6 +211,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb301Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -196,10 +222,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB302_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB302_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb302TempVo> items = new ArrayList<UtbGb302TempVo>();
 		UtbGb302TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb302TempVo) BeanToMapUtil.convertMap(UtbGb302TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -208,6 +235,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb302Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -217,10 +246,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB303_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB303_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb303TempVo> items = new ArrayList<UtbGb303TempVo>();
 		UtbGb303TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb303TempVo) BeanToMapUtil.convertMap(UtbGb303TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -238,10 +268,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB304_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB304_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb304TempVo> items = new ArrayList<UtbGb304TempVo>();
 		UtbGb304TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb304TempVo) BeanToMapUtil.convertMap(UtbGb304TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -250,6 +281,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb304Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -259,10 +292,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB305_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB305_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb305TempVo> items = new ArrayList<UtbGb305TempVo>();
 		UtbGb305TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb305TempVo) BeanToMapUtil.convertMap(UtbGb305TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -271,6 +305,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb305Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -280,10 +316,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB306_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB306_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb306TempVo> items = new ArrayList<UtbGb306TempVo>();
 		UtbGb306TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb306TempVo) BeanToMapUtil.convertMap(UtbGb306TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -292,6 +329,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb306Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -301,10 +340,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_GB202EXT_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_GB202EXT_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbGb202extTempVo> items = new ArrayList<UtbGb202extTempVo>();
 		UtbGb202extTempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbGb202extTempVo) BeanToMapUtil.convertMap(UtbGb202extTempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -313,6 +353,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbGb202extTemp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -322,10 +364,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_LPXM_V5_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_LPXM_V5_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkLpxmV5TempVo> items = new ArrayList<UtbDkLpxmV5TempVo>();
 		UtbDkLpxmV5TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkLpxmV5TempVo) BeanToMapUtil.convertMap(UtbDkLpxmV5TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -334,6 +377,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkLpxmV5Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -343,10 +388,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_LPXMMX_V5_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_LPXMMX_V5_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkLpxmmxV5TempVo> items = new ArrayList<UtbDkLpxmmxV5TempVo>();
 		UtbDkLpxmmxV5TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkLpxmmxV5TempVo) BeanToMapUtil.convertMap(UtbDkLpxmmxV5TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -355,6 +401,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkLpxmmxV5Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -364,10 +412,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_KFS_V5_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_KFS_V5_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkKfsV5TempVo> items = new ArrayList<UtbDkKfsV5TempVo>();
 		UtbDkKfsV5TempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkKfsV5TempVo) BeanToMapUtil.convertMap(UtbDkKfsV5TempVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -376,6 +425,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkKfsV5Temp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -385,10 +436,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_DKJD_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_DKJD_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkDkjdTempVo> items = new ArrayList<UtbDkDkjdTempVo>();
 		UtbDkDkjdTempVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkDkjdTempVo) BeanToMapUtil.convertMap(UtbDkDkjdTempVo.class, data);
 				vo.setCzlx(v_Control.getCzlx().hashCode());
@@ -396,6 +448,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkDkjdTemp(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -405,10 +459,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_MARGIN_MAIN_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_MARGIN_MAIN_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkMarginMainVo> items = new ArrayList<UtbDkMarginMainVo>();
 		UtbDkMarginMainVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkMarginMainVo) BeanToMapUtil.convertMap(UtbDkMarginMainVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -417,6 +472,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkMarginMain(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -426,10 +483,11 @@ public class DtServiceImpl implements IDtService {
 	}
 
 	@Override
-	public void Insert_DK_MARGIN_DETIALS_temp(VisitControl v_Control, ArrayList<HashMap<String, Object>> p_Data) throws ServiceException {
+	public void Insert_DK_MARGIN_DETIALS_temp(VisitControl v_Control, String tableParam) throws ServiceException {
 		List<UtbDkMarginDetialsVo> items = new ArrayList<UtbDkMarginDetialsVo>();
 		UtbDkMarginDetialsVo vo = null;
 		try {
+			p_Data = jsonToMap(tableParam);
 			for (Map<String, Object> data : p_Data) {
 				vo = (UtbDkMarginDetialsVo) BeanToMapUtil.convertMap(UtbDkMarginDetialsVo.class, data);
 				vo.setXzqy(v_Control.getGjjzxbm());
@@ -438,6 +496,8 @@ public class DtServiceImpl implements IDtService {
 				items.add(vo);
 			}
 			dtMapper.insertUtbDkMarginDetials(items);
+		}catch (ServiceException e){
+			throw e;
 		}
 		catch (Exception e) {
 			log.error("写入临时表错误:", e);
@@ -509,6 +569,22 @@ public class DtServiceImpl implements IDtService {
 			newChars[count++] = actualChar;
 		}
         return new String (newChars).trim();
+	}
+	
+	private List<Map<String,Object>> jsonToMap(String json) throws ServiceException{
+		List<Map<String, Object>> base = null;
+		try {
+			// json反序列化
+			ObjectMapper mapper = new ObjectMapper();
+			base = mapper.readValue(json, new TypeReference<List<Map<String, Object>>>() {
+			});
+		}
+		catch (IOException e) {
+			log.error(json);
+			log.error(e);
+			throw new ServiceException(ServiceErrorCode.JSON_PRASE_EXCEPTION, e.getMessage());
+		}
+		return base;
 	}
 
 	// private boolean TableAddColumns(VisitControl v_Control, List<Map<String,

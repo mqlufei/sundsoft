@@ -31,7 +31,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public Map<String, Object> GJ_BJGETLIST(BJ_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJGETLIST(params);
+			bjMapper.GJ_BJGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -44,7 +44,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public String GJ_BJZXSH(BJ_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJGETLIST(params);
+			bjMapper.GJ_BJGETLIST(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -57,7 +57,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public String GJ_BJYYBL(BJ_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJYYBL(params);
+			bjMapper.GJ_BJYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -70,7 +70,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public Map<String, Object> GJ_BJGETMXLIST(BJ_GetmxlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJGETMXLIST(params);
+			bjMapper.GJ_BJGETMXLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -83,7 +83,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public String GJ_BJAceept(BJ_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJAceept(params);
+			bjMapper.GJ_BJAceept(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -96,7 +96,7 @@ public class Gj_BjServiceImpl implements IGj_BjService {
 	public Map<String, Object> GJ_BJGETBYID(BJ_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = bjMapper.GJ_BJGETBYID(params);
+			bjMapper.GJ_BJGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {

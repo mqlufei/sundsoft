@@ -28,7 +28,7 @@ public class Gj_JchjServiceImpl implements IGj_JchjService {
 	public Map<String, Object> GJ_JCHJGETLIST(JCHJ_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jchjMapper.GJ_JCHJGETLIST(params);
+			jchjMapper.GJ_JCHJGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class Gj_JchjServiceImpl implements IGj_JchjService {
 	public String GJ_JCHJZXSH(JCHJ_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jchjMapper.GJ_JCHJZXSH(params);
+			jchjMapper.GJ_JCHJZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class Gj_JchjServiceImpl implements IGj_JchjService {
 	public String GJ_JCHJYYBL(JCHJ_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jchjMapper.GJ_JCHJYYBL(params);
+			jchjMapper.GJ_JCHJYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -67,7 +67,7 @@ public class Gj_JchjServiceImpl implements IGj_JchjService {
 	public Map<String, Object> GJ_JCHJGETBYID(JCHJ_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jchjMapper.GJ_JCHJGETBYID(params);
+			jchjMapper.GJ_JCHJGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -80,7 +80,7 @@ public class Gj_JchjServiceImpl implements IGj_JchjService {
 	public String GJ_JCHJACEEPT(JCHJ_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jchjMapper.GJ_JCHJACEEPT(params);
+			jchjMapper.GJ_JCHJACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

@@ -15,7 +15,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.crmExchange.GrqudjMapper.baseResultMap}
 		)}
 	</select>
 

@@ -28,7 +28,7 @@ public class Gj_JCBLTZServiceImpl implements IGj_JCBLTZService {
 	public Map<String, Object> GJ_JCBLTZGETLIST(JCBLTZ_GetlistModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jCBLTZMapper.GJ_JCBLTZGETLIST(params);
+			jCBLTZMapper.GJ_JCBLTZGETLIST(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -41,7 +41,7 @@ public class Gj_JCBLTZServiceImpl implements IGj_JCBLTZService {
 	public String GJ_JCBLTZZXSH(JCBLTZ_ZxshModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jCBLTZMapper.GJ_JCBLTZZXSH(params);
+			jCBLTZMapper.GJ_JCBLTZZXSH(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class Gj_JCBLTZServiceImpl implements IGj_JCBLTZService {
 	public String GJ_JCBLTZYYBL(JCBLTZ_YyblModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jCBLTZMapper.GJ_JCBLTZYYBL(params);
+			jCBLTZMapper.GJ_JCBLTZYYBL(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {
@@ -67,7 +67,7 @@ public class Gj_JCBLTZServiceImpl implements IGj_JCBLTZService {
 	public Map<String, Object> GJ_JCBLTZGETBYID(JCBLTZ_GetbyidModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jCBLTZMapper.GJ_JCBLTZGETBYID(params);
+			jCBLTZMapper.GJ_JCBLTZGETBYID(params);
 			return params;
 		}
 		catch (Exception e) {
@@ -80,7 +80,7 @@ public class Gj_JCBLTZServiceImpl implements IGj_JCBLTZService {
 	public String GJ_JCBLTZACEEPT(JCBLTZ_AceeptModel model) throws ServiceException {
 		try {
 			Map<String, Object> params = BeanToMapUtil.convertBean(model);
-			params = jCBLTZMapper.GJ_JCBLTZACEEPT(params);
+			jCBLTZMapper.GJ_JCBLTZACEEPT(params);
 			return params.get("Out_Msg") == null ? "" : params.get("Out_Msg").toString();
 		}
 		catch (Exception e) {

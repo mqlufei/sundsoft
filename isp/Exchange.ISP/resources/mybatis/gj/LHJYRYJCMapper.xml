@@ -21,7 +21,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.LHJYRYJCMapper.baseResultMap}
 		)}
 	</select>
 
@@ -57,7 +57,7 @@
 		#{OUT_ROWCOUNT,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWPAGEINDEX,mode=OUT,jdbcType=NUMERIC},
 		#{OUT_NEWROWINDEX,mode=OUT,jdbcType=NUMERIC},
-		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATA,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.LHJYRYJCMapper.baseResultMap}
 		)}
 	</select>
 
@@ -74,8 +74,8 @@
 
 	<select id="GJ_LHJYRYJCGETBYID" statementType="CALLABLE" parameterType="Map">
 		{call Pkg_Sl_Gjlhjyryjc.Upr_Gj_Lhjyryjcgetbyid(
-		#{OUT_DATABJ,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap},
-		#{OUT_DATABJMX,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=baseResultMap}
+		#{OUT_DATABJ,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.LHJYRYJCMapper.baseResultMap},
+		#{OUT_DATABJMX,mode=OUT,jdbcType=CURSOR,javaType=java.sql.ResultSet,resultMap=com.sundsoft.mapper.gjExchange.LHJYRYJCMapper.baseResultMap}
 		)}
 	</select>
 
