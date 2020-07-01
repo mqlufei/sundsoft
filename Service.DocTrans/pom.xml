@@ -116,7 +116,7 @@
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<cxf.version>3.0.0</cxf.version>
 		
-		<quartz.version>2.2.1</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<ehcache.version>2.10.1</ehcache.version>
 		<!-- jdbc driver setting -->
 		<mysql.driver.version>5.1.30</mysql.driver.version>
