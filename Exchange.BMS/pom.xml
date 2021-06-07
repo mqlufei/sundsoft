@@ -110,7 +110,7 @@
 		<maven.integration-test.argLine>-Xmx1024m -XX:MaxPermSize=512m</maven.integration-test.argLine>
 
 		<slf4j.version>1.7.12</slf4j.version>
-		<logback.version>1.1.3</logback.version>
+		<logback.version>1.2.0</logback.version>
 		<logback.spring.version>0.1.4</logback.spring.version>
 		<jackson.version>2.6.2</jackson.version>
 		<spring.version>4.2.1.RELEASE</spring.version>
